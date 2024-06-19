@@ -2,29 +2,82 @@ const express = require('express')
 const app = express()
 const https = require('http').createServer(app);
 const WebSocket = require('ws');
-
 const wss = new WebSocket.Server({ server:https });
 
-wss.on('connection', function connection(ws) {
-  console.log('A new client Connected!');
-  ws.send('Welcome New Client!');
+// deviated from:
+//  https://github.com/websockets/ws/blob/master/examples/express-session-parse/index.js
+//  https://github.com/websockets/ws/blob/master/examples/express-session-parse/public/app.js
 
-  ws.on('message', function incoming(message) {
-    console.log('received: %s', message);
+wss.on('upgrade', function (request, socket, head) {
+  // socket.on('error', onSocketError);
 
-    wss.clients.forEach(function each(client) {
-      if (client !== ws && client.readyState === WebSocket.OPEN) {
-        client.send(message);
-      }
-    });
-    
+  // console.log('Parsing session from request...');
+
+  // sessionParser(request, {}, () => {
+  if (!ws) {
+    console.log('No WebSocket connection');
+    return;
+  };
+
+  ws.send('Hello World!');
+  console.log('Sent "Hello World!"');
+
+  // if (!request.session.userId) {
+  //   socket.write('HTTP/1.1 401 Unauthorized\r\n\r\n');
+  //   socket.destroy();
+  //   return;
+  // };
+
+  // console.log('Session is parsed!');
+
+  wss.removeListener('error', onSocketError);
+
+  wss.handleUpgrade(request, socket, head, function (ws) {
+    wss.emit('connection', ws, request);
   });
 });
+
+wss.on('connection', function (ws, request) {
+  // const userId = request.session.userId;
+  // map.set(userId, ws);
+
+  ws.on('error', console.error);
+
+  ws.on('message', function (message) {
+    //
+    // Here we can now use session parameters.
+    //
+    console.log(`Received message ${message}`);
+  });
+
+  ws.on('close', function () {
+    // map.delete(userId);
+  });
+});
+
+// wss.on('connection', function (ws) {
+//   const id = setInterval(function () {
+//     ws.send(JSON.stringify(process.memoryUsage()), function () {
+//       //
+//       // Ignore errors.
+//       //
+//     });
+//     // console.log('interval running');
+//   }, 100);
+//   console.log('started client interval');
+
+//   ws.on('error', console.error);
+
+//   ws.on('close', function () {
+//     console.log('stopping client interval');
+//     clearInterval(id);
+//   });
+// });
 
 // app.get('/', (req, res) => res.send('Hello World!'))
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
-    res.sendFile(__dirname + '/public/main.js');
+    // res.sendFile(__dirname + '/public/main.js');
 });
 
 https.listen(3000, () => console.log(`Lisening on port :3000`))

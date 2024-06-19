@@ -6,21 +6,14 @@
       const websocket = new WebSocket("ws://localhost:3000/");
       document.addEventListener('keydown', (event) => {
         if (event.key === 'a' || event.key === 'd') {
-          websocket.send(event.key);
+          websocket.send('keydown:' + event.key);
+          console.log('keydown:' + event.key);
         };
       });
-
-      // document.addEventListener('keydown', (event) => {
-      //   const websocket = new WebSocket("ws://localhost:8080/");
-      //   if (event.key === 'a' || event.key === 'd') {
-      //     websocket.send(event.key);
-      //   }
-      // });
     </script>
   </head>
   <body>
-    <h1>hit a/s key</h1>
+    <h1>hit a/d key</h1>
     <div class="board"></div>
-    <!-- <script src="public/main.js" type="module"></script> -->
   </body>
 </html>
