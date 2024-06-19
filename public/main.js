@@ -1,4 +1,4 @@
-import { createBoard, playMove } from "../connect4.js";
+import { createBoard, playMove } from "./connect4.js";
 
 function showMessage(message) {
   window.setTimeout(() => window.alert(message), 50);
@@ -47,7 +47,14 @@ window.addEventListener("DOMContentLoaded", () => {
   const board = document.querySelector(".board");
   createBoard(board);
   // Open the WebSocket connection and register event handlers.
-  const websocket = new WebSocket("ws://localhost:8001/");
+  const websocket = new WebSocket("ws://localhost:8080/");
   receiveMoves(board, websocket);
   sendMoves(board, websocket);
+});
+
+document.addEventListener('keydown', (event) => {
+  const websocket = new WebSocket("ws://localhost:8080/");
+  if (event.key === 'a' || event.key === 'd') {
+    websocket.send(event.key);
+  }
 });

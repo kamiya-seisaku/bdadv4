@@ -1,7 +1,21 @@
 {
+  "name": "bdadv4",
+  "version": "1.0.0",
+  "description": "blender-python game uncirtain-days: take 4",
+  "main": "server.js",
+  "scripts": {
+    "devStart": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "express": "^4.19.2",
-    "socket.io": "^4.7.5"
+    "http": "^0.0.1-security",
+    "path": "^0.12.7",
+    "socket.io": "^4.7.5",
+    "ws": "^8.17.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.3"

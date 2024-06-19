@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Connect Four</title>
+    <title>Uncirtain Days</title>
+    <script>
+      document.addEventListener('keydown', (event) => {
+        const websocket = new WebSocket("ws://localhost:8080/");
+        if (event.key === 'a' || event.key === 'd') {
+          websocket.send(event.key);
+        }
+      });
+    </script>
   </head>
   <body>
+    <h1>hit a/s key</h1>
     <div class="board"></div>
-    <script src="main.js" type="module"></script>
+    <!-- <script src="public/main.js" type="module"></script> -->
   </body>
 </html>
