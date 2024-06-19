@@ -3,12 +3,19 @@
   <head>
     <title>Uncirtain Days</title>
     <script>
+      const websocket = new WebSocket("ws://localhost:3000/");
       document.addEventListener('keydown', (event) => {
-        const websocket = new WebSocket("ws://localhost:8080/");
         if (event.key === 'a' || event.key === 'd') {
           websocket.send(event.key);
-        }
+        };
       });
+
+      // document.addEventListener('keydown', (event) => {
+      //   const websocket = new WebSocket("ws://localhost:8080/");
+      //   if (event.key === 'a' || event.key === 'd') {
+      //     websocket.send(event.key);
+      //   }
+      // });
     </script>
   </head>
   <body>
