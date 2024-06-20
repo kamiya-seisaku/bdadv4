@@ -15,65 +15,11 @@ from mathutils import Vector
 import asyncio
 import websockets
 import json
+from flask import Flask, send_file
+from flask_socketio import SocketIO, emit
 
 # Todo:
 # 1 web casting
-# 1 implement per frame rendering, where each frame is rendered to a separate image file on the fly.
-#--------------------------------------------
-# This operator registers itself (via .execute method) so that 
-# the blender timer runs .modal method of this class every frame 
-# (with scene animation running).
-# event.type == 'FRAME_CHANGE_POST' becomes true every frame.
-# event.type == 'A' becomes true every time user pressed A key.
-
-def init_bricks():
-    
-    # Instead of using a class and store data in it, 
-    #   (which was a failed attempt, since random and frequent data losses) 
-    #   this function stores data as objects.
-    sequence = [1, 2, 0, 3, 0, 2, 0, 3, 0, 2, 1, 2, 0, 1, 2, 0, 0, 3, 0, 4, 0, 3, 4, 3, 2, 1]
-    # path_brick = bpy.data.objects.get('path_brick')
-    rectangles = []
-
-    # Delete existing bricks first, then make copies
-    brick_names = [f"path_brick.{i:03d}" for i in range(1, 30)]
-    brick_names_hit = [name + "_hit" for name in brick_names]
-    all_brick_names = brick_names + brick_names_hit
-    for name in all_brick_names:
-        if name in bpy.data.objects:
-            bpy.ops.object.select_all(action="DESELECT")
-            bpy.data.objects[name].select_set(True)
-            bpy.ops.object.delete()
-
-    original_brick = bpy.data.objects.get("path_brick")
-    bpy.context.view_layer.objects.active = original_brick # Explicitly set the active object
-    bpy.context.view_layer.update() #Force refrect data changes to view
-    for i in range(1, len(sequence)):
-        # then (re)create the brick copy
-        brick_name = f"path_brick.{i:03d}"
-        bpy.ops.object.select_all(action="DESELECT")
-        original_brick.select_set(True)
-        bpy.ops.object.duplicate()
-        bpy.ops.object.select_all(action='DESELECT')
-        brick = bpy.data.objects.get(brick_name)
-        bpy.context.view_layer.objects.active = brick
-        bpy.context.view_layer.update()
-
-        if brick is not None:
-            rectangles.append(brick)
-
-    # Position the bricks according to the sequence
-    for i, x in enumerate(sequence):
-        if i < len(rectangles): #runs only up to rectangles length, even when sequence was longer 
-            new_rect = rectangles[i]
-            interval = -4.0
-            offset = -2.0
-            new_rect.location.x = x
-            new_rect.location.y = offset + i * interval
-            new_rect.location.z = 4
-            # new_rect.parent = original_brick
-            bpy.context.view_layer.objects.active = new_rect
-            bpy.context.view_layer.update()
 
 async def connect_websocket(operator_instance):
     uri = "ws://localhost:8080"  
@@ -294,3 +240,34 @@ bpy.ops.wm.modal_timer_operator()
 if __name__ == "__main__":
     register()
     bpy.ops.wm.modal_timer_operator()
+
+
+# Flask server code
+
+# from flask import Flask, send_file
+# from flask_socketio import SocketIO, emit
+
+# app = Flask(__name__)
+# socketio = SocketIO(app)
+
+# @socketio.on('connect')
+# def handle_connect():
+#     print('Client connected')
+
+# @socketio.on('disconnect')
+# def handle_disconnect():
+#     print('Client disconnected')
+
+# @socketio.on('message')
+# def handle_message(message):
+#     print(f'Received message {message}')
+
+# @app.route('/')
+# def index():
+#     return send_file('../../public/index.html')
+
+# #debug
+# socketio.run(app, host='0.0.0.0', port=3000)
+
+# #if __name__ == '__main__':
+# #    socketio.run(app, host='0.0.0.0', port=3000)

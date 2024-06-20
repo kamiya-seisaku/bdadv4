@@ -1,4 +1,4 @@
-// to run the server: npm run devStart 
+// to run the server: npm run devStart
 const express = require('express');
 const app = express();
 const https = require('http').createServer(app);
@@ -15,16 +15,24 @@ wss.on('connection', function (ws, request) {
 
   ws.on('error', console.error);
 
+
   ws.on('message', function (message) {
     //
     // Here we can now use session parameters.
     //
-    console.log(`on-connection: Received message ${message}`);
-    // ws.send("server.js:send-message:"+message);
-    ws.emit('server.js:emit-message:', JSON.stringify(message));
-
-
+    console.log(`Received message ${message}`);
   });
+
+  // ws.on('message', function (message) {
+  //   //
+  //   // Here we can now use session parameters.
+  //   //
+  //   console.log(`on-connection: Received message ${message}`);
+  //   // ws.send("server.js:send-message:"+message);
+  //   ws.emit('server.js:emit-message:', JSON.stringify(message));
+
+
+  // });
 
   ws.on('close', function () {
     // map.delete(userId);
