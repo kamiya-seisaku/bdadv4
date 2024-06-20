@@ -8,13 +8,13 @@
 # I like all kind of games.
 # Kamiya Seisaku, Kamiya Kei, 2024
 import bpy
-import sys
+# import sys
 import os
 import glob
 from mathutils import Vector
-import asyncio
+# import asyncio
 import websockets
-import json
+# import json
 from flask import Flask, send_file
 from flask_socketio import SocketIO, emit
 
@@ -230,6 +230,32 @@ def unregister():
 def register():
     bpy.utils.register_class(ModalTimerOperator)
     bpy.types.VIEW3D_MT_view.append(menu_func)
+
+
+###############################################################
+# Flask server code
+###############################################################
+app = Flask(__name__)
+socketio = SocketIO(app)
+
+@socketio.on('connect')
+def handle_connect():
+    print('Client connected')
+
+@socketio.on('disconnect')
+def handle_disconnect():
+    print('Client disconnected')
+
+@socketio.on('message')
+def handle_message(message):
+    print(f'Received message {message}')
+
+@app.route('/')
+def index():
+    return send_file('../../public/index.html')
+
+#start the server
+socketio.run(app, host='0.0.0.0', port=3000)
 
 # Todo: comment out [debug codes]
 register()
