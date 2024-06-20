@@ -176,6 +176,9 @@ class ModalTimerOperator(bpy.types.Operator):
         return
 
     def execute(self, context):
+        #start the web server
+        socketio.run(app, host='0.0.0.0', port=3000)
+
         # called when bpy.ops.wm.modal_timer_operator() is called or user selects menu
 
         # Register modal method of this class as frame_change_post handler
@@ -253,9 +256,6 @@ def handle_message(message):
 @app.route('/')
 def index():
     return send_file('../../public/index.html')
-
-#start the server
-socketio.run(app, host='0.0.0.0', port=3000)
 
 # Todo: comment out [debug codes]
 register()
