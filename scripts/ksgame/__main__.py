@@ -1,5 +1,5 @@
-######## 2024/6/9 checked out from 6b96863 (probably working ver) #####
-######## 2024/6/9 adding parts from websock ver #######################
+######## 2024/6/20 checked out from bdadv3/66afa65 (key in view3d working yay)#####
+######## 2024/6/20 to add websock #######################
 
 # This code is written for a Blender indie game project "Uncirtain Days"
 # This code is published with the MIT license, as is, no support obligation.
@@ -12,13 +12,27 @@ import sys
 import os
 import glob
 from mathutils import Vector
-# import asyncio
+import asyncio
 import websockets
-# import json
-# import subprocess
+import json
+
+# Todo:
+# 1 web casting
+# 1 implement per frame rendering, where each frame is rendered to a separate image file on the fly.
+#--------------------------------------------
+# This operator registers itself (via .execute method) so that 
+# the blender timer runs .modal method of this class every frame 
+# (with scene animation running).
+# event.type == 'FRAME_CHANGE_POST' becomes true every frame.
+# event.type == 'A' becomes true every time user pressed A key.
 
 def init_bricks():
+    
+    # Instead of using a class and store data in it, 
+    #   (which was a failed attempt, since random and frequent data losses) 
+    #   this function stores data as objects.
     sequence = [1, 2, 0, 3, 0, 2, 0, 3, 0, 2, 1, 2, 0, 1, 2, 0, 0, 3, 0, 4, 0, 3, 4, 3, 2, 1]
+    # path_brick = bpy.data.objects.get('path_brick')
     rectangles = []
 
     # Delete existing bricks first, then make copies
@@ -61,70 +75,121 @@ def init_bricks():
             bpy.context.view_layer.objects.active = new_rect
             bpy.context.view_layer.update()
 
-# async def connect_websocket(operator_instance):
-#      = "ws://localhost:8080"  
-#     messages = []
-#     try:
-#         async with websockets.connect(uri) as websocket:
-#             while not operator_instance.cancel_requested:
-#                 try:
-#                     message = await websocket.recv()
-#                     messages.append(message)  # Store received messages
-#                 except websockets.ConnectionClosed:
-#                     print("WebSocket connection closed.")
-#                     break  # Exit the loop on connection closure
-#     except (OSError, websockets.exceptions.WebSocketException) as e:
-#         print(f"WebSocket connection error: {e}")
-#     return messages  # Return all received messages
+async def connect_websocket(operator_instance):
+    uri = "ws://localhost:8080"  
+    messages = []
+    try:
+        async with websockets.connect(uri) as websocket:
+            while not operator_instance.cancel_requested:
+                try:
+                    message = await websocket.recv()
+                    messages.append(message)  # Store received messages
+                except websockets.ConnectionClosed:
+                    print("WebSocket connection closed.")
+                    break  # Exit the loop on connection closure
+    except (OSError, websockets.exceptions.WebSocketException) as e:
+        print(f"WebSocket connection error: {e}")
+    return messages  # Return all received messages
 
 class ModalTimerOperator(bpy.types.Operator):
     bl_idname = "wm.modal_timer_operator"
     bl_label = "ks game"
     path_util = None
 
-    websocket = None # websocket connection. variable in class score should be sustained
-    uri = "ws://localhost:8080"  
-
     def modal(self, context, event):
         current_frame = bpy.context.scene.frame_current
+
+        # 2024/6/9 omit opengl rendering for now ##########################
+        # # render the frame to an image
+        # # Define the output path
+        # output_path = f"C:\\tmp\\ucd{current_frame}.png"
+        # output_path = f".\\flaskserver\\img\\ucd{current_frame}.png"
+        # # Set the output format to PNG
+        # bpy.context.scene.render.image_settings.file_format = 'PNG'
+        # # Set the output path
+        # bpy.context.scene.render.filepath = output_path
+        # # Render the current 3D view
+        # bpy.ops.render.opengl(write_still=True) #use eevee
+        # #bpy.ops.render.render(write_still=True) #use raytracing
+        # # game score is held in the ui text object, custom property "score"
+        # # increase score when the bike hits one of the bricks
+
+        # 2024/6/9 omit old keyhandling for now ##########################
+        # if current_frame % 60 == 0:
+        #     # brick hit logics (CPU heavy) run only every 60 frames
+        #     # Check the distance between the bike and each brick
+        #     # run hit action and then the hit brick is renamed by adding "_hit"
+        #     colision_range = range(1, 10) #originally: range(1, 31)
+        #     bricks = [bpy.data.objects.get(f'path_brick.{i:03d}') for i in colision_range]
+        #     bricks = [brick for brick in bricks if brick is not None] # remove None objects. hit bricks become None.
+        #     for brick_id, brick in enumerate(bricks):
+        #         bike = bpy.data.objects.get('bikev16')
+        #         bike_location = bike.location
+        #         # set hit point of the bike in front of bike, negative in y direction
+        #         hit_point = bike_location + Vector((0, -2, 0))
+        #         bpy.context.view_layer.objects.active = brick
+        #         distance = (hit_point - brick.location).length
+        #         if distance < .5:  # If the distance is less than 3m
+        #             # Now let the hit brick play "brick_hit" hit action.
+        #             # This involves 1 create animation data 2 create a nla track, and 3 create a action strip. 
+        #             brick.animation_data_create()
+        #             action = bpy.data.actions["brick_hit"]
+
+        #             # Get the list of NLA tracks
+        #             tracks = brick.animation_data.nla_tracks
+
+        #             # Check if there are any tracks already.  If not, create one.
+        #             for track in tracks:
+        #                 if track.name == "brick_hit_track":
+        #                     break
+        #             else:
+        #                 if len(tracks) > 0:
+        #                     track = tracks.new(prev=tracks[-1]) # If there are, insert the new track before the last one
+        #                 else:
+        #                     track = tracks.new() # If there aren't, just append the new track at the end
+
+        #                 track.name = "brick_hit_track" # Set the name of the track
+
+        #             # add a strip (plain "brick_hit" action) to the track
+        #             strip = track.strips.new(name="brick_hit", start=bpy.context.scene.frame_current, action=action)
+        #             # # Shift the action to start at the current frame
+        #             strip.frame_start = bpy.context.scene.frame_current
+        #             strip.frame_end = strip.frame_start + (action.frame_range[1] - action.frame_range[0])
+        #             bpy.context.view_layer.objects.active = brick #Need this to make location changes into blender data
+        #             # Todo: 5/15 for some reason the brick is not getting deleted
+        #             # 5/15 bricks is recreated every frame from brick objects so removing from bricks list makes no sense:  bricks.remove(id=brick_id) #remove the hit brick from the array bricks so it wont get hit again
+        #             bpy.ops.object.select_all(action="DESELECT")
+        #             brick.select_set(True) # Select the object in 3D view
+        #             # hide the brick in 3D view
+        #             brick.name = brick.name + "_hit"
+        #             # no I don't delete the object, I want it to play hit animation first.  bpy.ops.object.delete() # Delete the object from blender data
+        #             # todo------------------------------------------
+
+        #             score_obj = bpy.data.objects.get('ui.Text.score')
+        #             score_obj["score"] += 1
+        #             bpy.context.view_layer.objects.active = score_obj #Need this to make location changes into blender data
+        #             score = score_obj["score"]
+        #             score_obj.data.body = str(f"Score:{score}")
+        #             bpy.context.view_layer.objects.active = score_obj #Need this to make location changes into blender data
+        #             FN_obj = bpy.data.objects.get('ui.Text.FN')
+        #             FN_obj.data.body = str(f"FN:{bpy.context.scene.frame_current}")
+        #             bpy.context.view_layer.objects.active = score_obj #Need this to make location changes into blender data
+        #             break  # pass this frame (and not detect key events till next frame)
+        
+        # key event handling runs every frame for better reactivity
 
         # Avoids "AttributeError: 'Depsgraph' object has no attribute 'type'" when mouse cursor is not in 3D view
         if isinstance(event, bpy.types.Event) == False:
             return {'PASS_THROUGH'}
 
+        # 2024/6/9 omit old keyhandling for now ##########################
         if event.type == 'ESC':
             self.cancel(context)
             return {'CANCELLED'}
 
-        # Check for WebSocket connection (if not already connected)
-        if not self.websocket:
-            try:
-                self.websocket = websockets.connect(self.uri)
-                # Consider waiting for a successful connection before proceeding
-            except Exception as e:
-                print(f"WebSocket connection error: {e}")
-                return {'CANCELLED'}  # Or handle the error differently
-
-        # Receive WebSocket message (if connected)
-        if self.websocket:
-            try:
-                message = self.websocket.recv()
-                if message & message.startswith("key:"):
-                    key = message.substring(4)  # Python doesn't have substring, use slicing instead
-                    key = key.strip()  # Remove potential leading/trailing whitespace
-                    # Process the key (similar to key_handling)
-                    if key in ['A','D']:
-                        print(f"{key} pressed on webpage")
-                        self.key_handling(context, event, key)
-
-            except websockets.ConnectionClosed:
-                print("WebSocket connection closed.")
-                self.ws = None  # Mark connection as closed
-            except Exception as e:
-                print(f"WebSocket receive error: {e}")
-
         # Todo: need repeated key event handling: pass event while action "brick_hit" is playing in nla (getting better but not perfect)
         # Add and play action "brick_hit" at the scene frame when the bike hits the brick (object distance < threshold)
+
         if event.type in {'A', 'D'}:
             key_input = event.type
             self.key_handling(context, event, key_input)
@@ -202,19 +267,7 @@ class ModalTimerOperator(bpy.types.Operator):
         return {'RUNNING_MODAL'}
 
     def cancel(self, context):
-        # Cleanup WebSocket connection (if any)
-        if self.ws:
-            self.ws.close()
-            self.ws = None
-
-        # if self.ws:
-        # try:
-        #     self.ws.close()
-        #     self.ws = None
-        # except Exception as e:
-        #     print(f"WebSocket close error: {e}")
-
-        # wm = context.window_manager
+        wm = context.window_manager
         bpy.app.handlers.frame_change_post.remove(self.modal)
         return {'PASS_THROUGH'}
 

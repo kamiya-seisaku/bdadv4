@@ -1,5 +1,6 @@
-const express = require('express')
-const app = express()
+// to run the server: npm run devStart 
+const express = require('express');
+const app = express();
 const https = require('http').createServer(app);
 const WebSocket = require('ws');
 const wss = new WebSocket.Server({ server:https });
@@ -19,6 +20,10 @@ wss.on('connection', function (ws, request) {
     // Here we can now use session parameters.
     //
     console.log(`on-connection: Received message ${message}`);
+    // ws.send("server.js:send-message:"+message);
+    ws.emit('server.js:emit-message:', JSON.stringify(message));
+
+
   });
 
   ws.on('close', function () {
