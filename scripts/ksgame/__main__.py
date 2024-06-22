@@ -28,6 +28,7 @@ class flask_server_wrapper:
     
     app = Flask(__name__)
     socketio = SocketIO(app)
+    key_input = None
 
     @socketio.on('connect')
     def handle_connect():
@@ -40,6 +41,14 @@ class flask_server_wrapper:
     @socketio.on('message')
     def handle_message(message):
         print(f'Received message {message}')
+        key_input = ''  # Reset key input
+        if message[0:7]=='keyup':
+            key_input = ''
+        elif message[0:7]=='keydown:':
+            if message[8:9]=='d':
+                key_input = 'D'
+            elif message[8:9]=='a':
+                key_input = 'A'
 
     @app.route('/')
     def index():
@@ -68,6 +77,11 @@ class ModalTimerOperator(bpy.types.Operator):
 
         # Todo: need repeated key event handling: pass event while action "brick_hit" is playing in nla (getting better but not perfect)
         # Add and play action "brick_hit" at the scene frame when the bike hits the brick (object distance < threshold)
+        if self.fsw.key_input in {'A', 'D'}:
+            key_input = self.fsw.key_input
+            self.key_handling(context, event, key_input)
+            return {'PASS_THROUGH'}
+
         if event.type in {'A', 'D'}:
             key_input = event.type
             self.key_handling(context, event, key_input)
