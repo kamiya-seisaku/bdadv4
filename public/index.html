@@ -12,10 +12,10 @@
                 console.log('keydown:' + event.key);
             };
         });
-        document.addEventListener('keyup', (event) => {
-            socket.emit('message', 'keyup');  // Emit a Socket.IO event
-            console.log('keyup');
-        });
+        // document.addEventListener('keyup', (event) => {
+        //     socket.emit('message', 'keyup');  // Emit a Socket.IO event
+        //     console.log('keyup');
+        // });
 
         socket.on('connect', () => {
             console.log('Connected to server');
