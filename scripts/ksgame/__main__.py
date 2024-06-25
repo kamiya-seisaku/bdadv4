@@ -34,7 +34,6 @@ class flask_server_wrapper:
     
     @socketio.on('connect')
     def handle_connect():
-    def handle_connect():
         print('Client connected')
 
     @socketio.on('disconnect')
@@ -76,7 +75,7 @@ class ModalTimerOperator(bpy.types.Operator):
 
     def modal(self, context, event):
         current_frame = bpy.context.scene.frame_current
-#        self.showTxt("ABC")
+        showTxt("in modal")
         
         # Avoids "AttributeError: 'Depsgraph' object has no attribute 'type'" when mouse cursor is not in 3D view
         if isinstance(event, bpy.types.Event) == False:
@@ -90,11 +89,11 @@ class ModalTimerOperator(bpy.types.Operator):
         # Add and play action "brick_hit" at the scene frame when the bike hits the brick (object distance < threshold)
 
         global key_input
-        self.showTxt("in ModalTimerOperator/modal")
-        self.showTxt(f"in ModalTimerOperator/modal:global key_input= {key_input}")
+        showTxt("in ModalTimerOperator/modal")
+        showTxt(f"in ModalTimerOperator/modal:global key_input= {key_input}")
 
         if key_input in {'A', 'D'}:
-            self.showTxt(f'in ModalTimerOperator/modal/if key_input in A, D: key_input = {key_input}')
+            showTxt(f'in if key_input in A, D: key_input = {key_input}')
             self.key_handling(context, event, key_input)
 
             return {'PASS_THROUGH'}
@@ -106,15 +105,10 @@ class ModalTimerOperator(bpy.types.Operator):
 
         return {'PASS_THROUGH'}
 
-    def showTxt(self, txt):
-        print(str(txt))
-        text_obj_key = bpy.data.objects.get('ui.Text.key')
-        text_obj_key.data.body = str(txt)
-
-    def key_handling(self, context, event, key_input):
+    def key_handling(self, context, event, pm_key_input):
         # Check if the bike is already moving
         # if moving skip the key event handling
-        print(f"in key_handling: key_input(arg)= {key_input}")
+        print(f"in key_handling: pm_key_input(arg)= {pm_key_input}")
         bike_mover = bpy.data.objects.get('bike-mover')
         text_obj_key = bpy.data.objects.get('ui.Text.key') # get ui text object for key event capture display
         text_obj_fn = bpy.data.objects.get('ui.Text.FN') # get ui text object for frame number display
@@ -131,12 +125,16 @@ class ModalTimerOperator(bpy.types.Operator):
             # is set according to the same object's custom property "score"
             text_obj_fn.data.body = str(f"FN:{frame_number}")
             # key event handling
-            if key_input == 'A':
+            if pm_key_input == 'A':
                 if bike_mover.location.x < 1:
                     bike_mover.location.x += 0.5
-            if key_input == 'D':
+            if pm_key_input == 'D':
                 if bike_mover.location.x > -1:
                     bike_mover.location.x -= 0.5
+
+            global key_input
+            key_input = ""
+            
             bpy.context.view_layer.objects.active = bike_mover #Need this to make location changes into blender data
             bpy.context.view_layer.update() #Need this for the change to be visible in 3D View
             
@@ -157,7 +155,7 @@ class ModalTimerOperator(bpy.types.Operator):
         bpy.app.handlers.frame_change_post.append(self.modal)
         wm.modal_handler_add(self)
 
-        bpy.context.window.workspace = bpy.data.workspaces['Modeling'] # Switch blender UI to modeling workspace
+        bpy.context.window.workspace = bpy.data.workspaces['Scripting'] # Switch blender UI to modeling workspace
 
         # Switch 3D view shading to rendered
         for area in bpy.context.screen.areas:
@@ -173,10 +171,29 @@ class ModalTimerOperator(bpy.types.Operator):
         return {'RUNNING_MODAL'}
 
     def cancel(self, context):
-        self.fsw.socketio.stop()
-        # wm = context.window_manager
-        # bpy.app.handlers.frame_change_post.remove(self.modal)
+        try:
+            self.fsw.socketio.stop() #cause error but pass message
+        except:
+            pass
+        try:
+            unregister()
+            wm = context.window_manager
+            bpy.app.handlers.frame_change_post.remove(self.modal)
+        except Exception as e:
+            pass
+            print(f"in ModalTimerOperator/cancel: Exception: {e}")
         return {'PASS_THROUGH'}
+
+previous_showTxt = ""
+
+def showTxt(txt):
+    global previous_showTxt
+    if txt == previous_showTxt:
+        return    
+    txt = previous_showTxt
+    print(str(txt))
+    text_obj_key = bpy.data.objects.get('ui.Text.key')
+    text_obj_key.data.body = str(txt)
 
 ###############################################################################
 # BLender menu/operator registration ##########################################
@@ -188,8 +205,13 @@ def menu_func(self, context):
 
 # Register and add to the "view" menu (required to also use F3 search "Modal Timer Operator" for quick access).
 def unregister():
-    bpy.utils.unregister_class(ModalTimerOperator)
-    bpy.types.VIEW3D_MT_view.remove(menu_func)
+    try:
+        if ModalTimerOperator:
+            bpy.utils.unregister_class(ModalTimerOperator)
+        if menu_func:
+            bpy.types.VIEW3D_MT_view.remove(menu_func)
+    except:
+        pass
 
 def register():
     bpy.utils.register_class(ModalTimerOperator)
@@ -202,5 +224,6 @@ def register():
 #unregister()
 
 if __name__ == "__main__":
+    unregister()
     register()
 #    bpy.ops.wm.modal_timer_operator()
