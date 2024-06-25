@@ -8,15 +8,16 @@ import bpy
 # import sys
 import os
 import glob
-from mathutils import Vector
+#from mathutils import Vector
 # import asyncio
-import websockets
+#import websockets
 # import json
 from flask import Flask, send_file
 from flask_socketio import SocketIO, emit
 import threading
 
 ### global variables
+key_source = ""
 key_input = ""
 
 # Todo:
@@ -25,8 +26,21 @@ key_input = ""
     # 1 cancelling needs to be reviewed
     # 1 casting
 
+## Utilities ##################################################################
+previous_txt = ""
+
+def showTxt(txt):
+    global previous_txt
+    if previous_txt == txt:
+        return
+    previous_txt = txt
+    print(str(txt))
+    text_obj_key = bpy.data.objects.get('ui.Text.key')
+    text_obj_key.data.body = str(txt)    
+
+## flask #####################################################################
 class flask_server_wrapper:
-    print("flask_server_wrapper")
+    showTxt("flask_server_wrapper")
     
     app = Flask(__name__)
     socketio = SocketIO(app)
@@ -34,18 +48,19 @@ class flask_server_wrapper:
     
     @socketio.on('connect')
     def handle_connect():
-    def handle_connect():
-        print('Client connected')
+        showTxt('Client connected')
 
     @socketio.on('disconnect')
     def handle_disconnect():
-        print('Client disconnected')
+        showTxt('Client disconnected')
 
     @socketio.on('message')
     def handle_message(message):
-        global key_input
-        print(f'in flask_server_wrapper/handle_message, Received message {message}')
-        print(f'in flask_server_wrapper/handle_message, initial global key_input: {key_input}')
+#        import pdb; pdb.set_trace()
+        global key_input, key_source
+        key_source = "socketio"
+        showTxt(f'in flask_server_wrapper/handle_message, Received message {message}')
+        showTxt(f'in flask_server_wrapper/handle_message, initial global key_input: {key_input}')
         key_input = ''  # Reset key input
         if message[0:7]=='keyup':
             key_input = ''
@@ -54,29 +69,29 @@ class flask_server_wrapper:
             socket_key_input = message[8:9]
             if socket_key_input in {'a', 'd'}:
                 key_input = socket_key_input.upper()
-                print(f'in flask_server_wrapper, global key_input set:{key_input}')
+                showTxt(f'in flask_server_wrapper, global key_input set:{key_input}')
             else:
-                print(f'Received non-a/d-message {message}')
-                print(f'key_input:{key_input}')
-        print(f'in flask_server_wrapper/handle_message, exiting global key_input: {key_input}')
+                showTxt(f'Received non-a/d-message {message}')
+                showTxt(f'key_input:{key_input}')
+        showTxt(f'in flask_server_wrapper/handle_message, exiting global key_input: {key_input}')
 
     @app.route('/')
     def index():
         return send_file('..\\public\\index.html')
 #        return send_file('../../public/index.html')
 
+## modaltimer #############################################################
 class ModalTimerOperator(bpy.types.Operator):
     bl_idname = "wm.modal_timer_operator"
     bl_label = "ks game"
-    path_util = None
-    fsw = None
+    fsw = None #flask server wrapper class
 
     def __init__(self):
         self.fsw = flask_server_wrapper()
 
     def modal(self, context, event):
         current_frame = bpy.context.scene.frame_current
-#        self.showTxt("ABC")
+#        showTxt("ABC")
         
         # Avoids "AttributeError: 'Depsgraph' object has no attribute 'type'" when mouse cursor is not in 3D view
         if isinstance(event, bpy.types.Event) == False:
@@ -90,31 +105,28 @@ class ModalTimerOperator(bpy.types.Operator):
         # Add and play action "brick_hit" at the scene frame when the bike hits the brick (object distance < threshold)
 
         global key_input
-        self.showTxt("in ModalTimerOperator/modal")
-        self.showTxt(f"in ModalTimerOperator/modal:global key_input= {key_input}")
+        global key_source
+#        showTxt("in ModalTimerOperator/modal")
+#        showTxt(f"in ModalTimerOperator/modal:global key_input= {key_input}")
 
         if key_input in {'A', 'D'}:
-            self.showTxt(f'in ModalTimerOperator/modal/if key_input in A, D: key_input = {key_input}')
+            showTxt(f'in ModalTimerOperator/modal/if key_input in A, D: key_input = {key_input}')
             self.key_handling(context, event, key_input)
 
             return {'PASS_THROUGH'}
 
         if event.type in {'A', 'D'}:
+            key_source = "blender event"
             key_input = event.type
             self.key_handling(context, event, key_input)
             return {'PASS_THROUGH'}
 
         return {'PASS_THROUGH'}
 
-    def showTxt(self, txt):
-        print(str(txt))
-        text_obj_key = bpy.data.objects.get('ui.Text.key')
-        text_obj_key.data.body = str(txt)
-
     def key_handling(self, context, event, key_input):
         # Check if the bike is already moving
         # if moving skip the key event handling
-        print(f"in key_handling: key_input(arg)= {key_input}")
+        showTxt(f"in key_handling: key_input(arg)= {key_input}")
         bike_mover = bpy.data.objects.get('bike-mover')
         text_obj_key = bpy.data.objects.get('ui.Text.key') # get ui text object for key event capture display
         text_obj_fn = bpy.data.objects.get('ui.Text.FN') # get ui text object for frame number display
@@ -140,7 +152,6 @@ class ModalTimerOperator(bpy.types.Operator):
             bpy.context.view_layer.objects.active = bike_mover #Need this to make location changes into blender data
             bpy.context.view_layer.update() #Need this for the change to be visible in 3D View
             
-        # self.path_util.update_path_bricks(bpy.context.scene.frame_current)
         return
 
     def execute(self, context):
@@ -157,7 +168,7 @@ class ModalTimerOperator(bpy.types.Operator):
         bpy.app.handlers.frame_change_post.append(self.modal)
         wm.modal_handler_add(self)
 
-        bpy.context.window.workspace = bpy.data.workspaces['Modeling'] # Switch blender UI to modeling workspace
+        bpy.context.window.workspace = bpy.data.workspaces['Scripting'] # Switch blender UI to modeling workspace
 
         # Switch 3D view shading to rendered
         for area in bpy.context.screen.areas:
@@ -203,4 +214,4 @@ def register():
 
 if __name__ == "__main__":
     register()
-#    bpy.ops.wm.modal_timer_operator()
+    bpy.ops.wm.modal_timer_operator()
