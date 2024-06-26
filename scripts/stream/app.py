@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key'
 socketio = SocketIO(app)
 
-monitor = {"top": 100, "left": 100, "width": 1000, "height": 1000}  # Define capture area
+monitor = {"top": 100, "left": 100, "width": 800, "height": 800}  # Define capture area
 
 def capture_and_stream():
     with mss.mss() as sct:
