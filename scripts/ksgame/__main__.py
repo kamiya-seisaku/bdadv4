@@ -12,7 +12,6 @@ import glob
 #from flask import Flask, send_file
 #from flask_socketio import SocketIO, emit
 #import threading
-#fsw = None
 import os
 import sys
 import threading
@@ -21,16 +20,18 @@ dir = os.path.dirname(bpy.data.filepath)
 libdir = os.path.join(dir, "scripts", "ksgame")
 sys.path.append(libdir)
 
-from flask_server import flask_server_wrapper
+### global variables
+key_source_g = ""
+key_input_g = ""
+fsw = ""
+
+import flask_server
 
 # streaming related libraries
 import mss
 import io
 from PIL import Image
 
-### global variables
-key_source = ""
-key_input = ""
 
 # Todo:
 # 1 simple stuff.
@@ -48,60 +49,6 @@ def showTxt(txt):
     text_obj_key = bpy.data.objects.get('ui.Text.key')
     text_obj_key.data.body = str(txt)    
 
-### flask #####################################################################
-#class flask_server_wrapper:
-#    showTxt("flask_server_wrapper")
-#  
-#    app = Flask(__name__)
-#    socketio = SocketIO(app)
-#    testvar = 0
-#    monitor = {"top": 100, "left": 100, "width": 800, "height": 800}  # Define capture area
-#    
-#    ## Casting ####################################################################
-#    def capture_and_stream(self):
-#        with mss.mss() as sct:
-#            while True:
-#                img = sct.grab(self.monitor)
-#                img = Image.frombytes("RGB", img.size, img.bgra, "raw", "BGRX")
-#                self.socketio.emit('screen_data', img.tobytes(), namespace='/screen') 
-#                # self.socketio.emit('screen_data', output.getvalue())
-
-#    @socketio.on('connect', namespace='/screen')  # Add namespace
-#    def handle_connect():
-#        showTxt('Client connected')
-#        self.socketio.start_background_task(self.capture_and_stream)
-
-#    @socketio.on('disconnect')
-#    def handle_disconnect():
-#        showTxt('Client disconnected')
-
-#    @socketio.on('message')
-#    def handle_message(message):
-##        import pdb; pdb.set_trace()
-#        global key_input, key_source
-#        if key_input == '':
-#            return
-#        key_source = "socketio"
-#        showTxt(f'in flask_server_wrapper/handle_message, Received message {message}')
-#        showTxt(f'in flask_server_wrapper/handle_message, initial global key_input: {key_input}')
-#        key_input = ''  # Reset key input
-#        if message[0:7]=='keyup':
-#            key_input = ''
-#        else:
-#        # elif message[0:7]=='keydown:':
-#            socket_key_input = message[8:9]
-#            if socket_key_input in {'a', 'd'}:
-#                key_input = socket_key_input.upper()
-#                showTxt(f'in flask_server_wrapper, global key_input set:{key_input}')
-#            else:
-#                showTxt(f'Received non-a/d-message {message}')
-#                showTxt(f'key_input:{key_input}')
-#        showTxt(f'in flask_server_wrapper/handle_message, exiting global key_input: {key_input}')
-
-#    @app.route('/')
-#    def index():
-#        return send_file('..\\public\\index.html')
-##        return send_file('../../public/index.html')
 
 ## modaltimer #############################################################
 class ModalTimerOperator(bpy.types.Operator):
@@ -128,12 +75,10 @@ class ModalTimerOperator(bpy.types.Operator):
 
         # Add and play action "brick_hit" at the scene frame when the bike hits the brick (object distance < threshold)
 
-        global key_input
-        global key_source
-#        showTxt("in ModalTimerOperator/modal")
-#        showTxt(f"in ModalTimerOperator/modal:global key_input= {key_input}")
+        global key_input_g
+        global key_source_g
 
-        if key_input in {'A', 'D'}:
+        if fsw.key_input in {'A', 'D'}:
             showTxt(f'in ModalTimerOperator/modal/if key_input in A, D: key_input = {key_input}')
             self.key_handling(context, event, key_input)
 
@@ -207,7 +152,7 @@ class ModalTimerOperator(bpy.types.Operator):
     def cancel(self, context):
         bpy.app.handlers.frame_change_post.remove(self.modal)
         unregister()
-#        self.fsw.socketio.stop()
+        # self.fsw.socketio.stop()
         # wm = context.window_manager
         return {'PASS_THROUGH'}
 
@@ -229,14 +174,14 @@ def unregister():
 
 def register():
     showTxt("register")
-    global fsw
-    fsw = flask_server_wrapper()
-    # Start the web server in a separate thread
-    threading.Thread(
-        target=fsw.socketio.run,
-        args=(fsw.app, '0.0.0.0', 3000),
-        kwargs={'allow_unsafe_werkzeug': True}  # For development purposes
-    ).start()
+#    global fsw
+#    fsw = flask_server_wrapper()
+#    # Start the web server in a separate thread
+#    threading.Thread(
+#        target=fsw.socketio.run,
+#        args=(fsw.app, '0.0.0.0', 3000),
+#        kwargs={'allow_unsafe_werkzeug': True}  # For development purposes
+#    ).start()
 
     bpy.utils.register_class(ModalTimerOperator)
     bpy.types.VIEW3D_MT_view.append(menu_func)
