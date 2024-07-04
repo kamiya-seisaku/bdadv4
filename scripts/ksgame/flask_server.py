@@ -1,5 +1,6 @@
 from flask import Flask, send_file
 from flask_socketio import SocketIO, emit
+import shared_stuff as sf
 
 ## flask #####################################################################
 class flask_server_wrapper:
@@ -32,27 +33,20 @@ class flask_server_wrapper:
     @socketio.on('message')
     def handle_message(message):
 #        import pdb; pdb.set_trace()
-        global key_input, key_source
-        if key_input == '':
+        if sf.key_input_g == '':
             return
-        key_source = "socketio"
-        # showTxt(f'in flask_server_wrapper/handle_message, Received message {message}')
-        # showTxt(f'in flask_server_wrapper/handle_message, initial global key_input: {key_input}')
-        key_input = ''  # Reset key input
+        sf.key_source_g = "socketio"
+        sf.key_input_g = ''  # Reset key input
         if message[0:7]=='keyup':
-            key_input = ''
+            sf.key_input_g = ''
         else:
         # elif message[0:7]=='keydown:':
             socket_key_input = message[8:9]
             if socket_key_input in {'a', 'd'}:
-                key_input = socket_key_input.upper()
-                # showTxt(f'in flask_server_wrapper, global key_input set:{key_input}')
+                sf.key_input_g = socket_key_input.upper()
             else:
-                # showTxt(f'Received non-a/d-message {message}')
-                # showTxt(f'key_input:{key_input}')
-                # showTxt(f'in flask_server_wrapper/handle_message, exiting global key_input: {key_input}')
                 pass
 
     @app.route('/')
     def index():
-        return send_file('..\\public\\index.html')
+        return send_file('..\\..\\public\\index.html')

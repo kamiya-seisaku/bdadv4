@@ -1,40 +1,20 @@
-######## 2024/6/20 checked out from bdadv3/66afa65 (key in view3d working yay)#####
-######## 2024/6/20 to add websock #######################
-
 # This code is written for a Blender indie game project "Uncirtain Days"
 # This code is published with the MIT license, as is, no support obligation.
 # Kamiya Seisaku, Kamiya Kei, 2024
 import bpy
-# import sys
 import os
 import glob
-#from mathutils import Vector
-#from flask import Flask, send_file
 #from flask_socketio import SocketIO, emit
 #import threading
-#fsw = None
 import os
 import sys
 import threading
-
 dir = os.path.dirname(bpy.data.filepath)
 libdir = os.path.join(dir, "scripts", "ksgame")
 sys.path.append(libdir)
 
 from flask_server import flask_server_wrapper
-
-# streaming related libraries
-import mss
-import io
-from PIL import Image
-
-### global variables
-key_source = ""
-key_input = ""
-
-# Todo:
-# 1 simple stuff.
-    # 1 casting
+import shared_stuff as sf
 
 ## Utilities ##################################################################
 previous_txt = ""
@@ -45,63 +25,8 @@ def showTxt(txt):
         return
     previous_txt = txt
     print(str(txt))
-    text_obj_key = bpy.data.objects.get('ui.Text.key')
-    text_obj_key.data.body = str(txt)    
-
-### flask #####################################################################
-#class flask_server_wrapper:
-#    showTxt("flask_server_wrapper")
-#  
-#    app = Flask(__name__)
-#    socketio = SocketIO(app)
-#    testvar = 0
-#    monitor = {"top": 100, "left": 100, "width": 800, "height": 800}  # Define capture area
-#    
-#    ## Casting ####################################################################
-#    def capture_and_stream(self):
-#        with mss.mss() as sct:
-#            while True:
-#                img = sct.grab(self.monitor)
-#                img = Image.frombytes("RGB", img.size, img.bgra, "raw", "BGRX")
-#                self.socketio.emit('screen_data', img.tobytes(), namespace='/screen') 
-#                # self.socketio.emit('screen_data', output.getvalue())
-
-#    @socketio.on('connect', namespace='/screen')  # Add namespace
-#    def handle_connect():
-#        showTxt('Client connected')
-#        self.socketio.start_background_task(self.capture_and_stream)
-
-#    @socketio.on('disconnect')
-#    def handle_disconnect():
-#        showTxt('Client disconnected')
-
-#    @socketio.on('message')
-#    def handle_message(message):
-##        import pdb; pdb.set_trace()
-#        global key_input, key_source
-#        if key_input == '':
-#            return
-#        key_source = "socketio"
-#        showTxt(f'in flask_server_wrapper/handle_message, Received message {message}')
-#        showTxt(f'in flask_server_wrapper/handle_message, initial global key_input: {key_input}')
-#        key_input = ''  # Reset key input
-#        if message[0:7]=='keyup':
-#            key_input = ''
-#        else:
-#        # elif message[0:7]=='keydown:':
-#            socket_key_input = message[8:9]
-#            if socket_key_input in {'a', 'd'}:
-#                key_input = socket_key_input.upper()
-#                showTxt(f'in flask_server_wrapper, global key_input set:{key_input}')
-#            else:
-#                showTxt(f'Received non-a/d-message {message}')
-#                showTxt(f'key_input:{key_input}')
-#        showTxt(f'in flask_server_wrapper/handle_message, exiting global key_input: {key_input}')
-
-#    @app.route('/')
-#    def index():
-#        return send_file('..\\public\\index.html')
-##        return send_file('../../public/index.html')
+    text_obj_system = bpy.data.objects.get('ui.Text.system')
+    text_obj_system.data.body = str(txt)    
 
 ## modaltimer #############################################################
 class ModalTimerOperator(bpy.types.Operator):
@@ -111,56 +36,40 @@ class ModalTimerOperator(bpy.types.Operator):
 
     def __init__(self):
         pass
-#        self.fsw = flask_server_wrapper()
 
     def modal(self, context, event):
         current_frame = bpy.context.scene.frame_current
-#        showTxt("ABC")
-        
-        # Avoids "AttributeError: 'Depsgraph' object has no attribute 'type'" when mouse cursor is not in 3D view
         if isinstance(event, bpy.types.Event) == False:
             return {'PASS_THROUGH'}
 
-        # 2024/6/9 omit old keyhandling for now ##########################
         if event.type == 'ESC':
             self.cancel(context)
             return {'CANCELLED'}
 
-        # Add and play action "brick_hit" at the scene frame when the bike hits the brick (object distance < threshold)
-
-        global key_input
-        global key_source
-#        showTxt("in ModalTimerOperator/modal")
-#        showTxt(f"in ModalTimerOperator/modal:global key_input= {key_input}")
-
-        if key_input in {'A', 'D'}:
-            showTxt(f'in ModalTimerOperator/modal/if key_input in A, D: key_input = {key_input}')
-            self.key_handling(context, event, key_input)
-
+        if sf.key_input_g in {'A', 'D'}:
+            showTxt(f'in ModalTimerOperator/modal/if sf.key_input_g in A, D: sf.key_input_g = {sf.key_input_g}')
+            self.key_handling(context, event, sf.key_input_g)
             return {'PASS_THROUGH'}
 
         if event.type in {'A', 'D'}:
-            key_source = "blender event"
-            key_input = event.type
-            self.key_handling(context, event, key_input)
+            sf.key_source_g = "blender event"
+            sf.key_input_g = event.type
+            self.key_handling(context, event, sf.key_input_g)
             return {'PASS_THROUGH'}
 
         return {'PASS_THROUGH'}
 
     def key_handling(self, context, event, key_input):
-        # Check if the bike is already moving
-        # if moving skip the key event handling
-        showTxt(f"in key_handling: key_input(arg)= {key_input}")
+        showTxt(f"in key_handling: key_input(arg of key_handling)= {key_input}")
         bike_mover = bpy.data.objects.get('bike-mover')
-        text_obj_key = bpy.data.objects.get('ui.Text.key') # get ui text object for key event capture display
-        text_obj_fn = bpy.data.objects.get('ui.Text.FN') # get ui text object for frame number display
-        # if bike_mover["is_moving"]: # not clear how bike mover custom properties are changing, lets instead use ui_text
-        if text_obj_key.data.body == str(f"bike_mover is moving"):
+        text_obj_toggle = bpy.data.objects.get('ui.Text.toggle')
+        text_obj_fn = bpy.data.objects.get('ui.Text.FN')
+        if text_obj_toggle.data.body == str(f"bike_mover is moving"):
             # bike_mover["is_moving"] = False
-            text_obj_key.data.body = str(f"bike_mover is not moving")
+            text_obj_toggle.data.body = str(f"bike_mover is not moving")
         else:
             # bike_mover["is_moving"] = True
-            text_obj_key.data.body = str(f"bike_mover is moving")
+            text_obj_toggle.data.body = str(f"bike_mover is moving")
             et = event.type
             frame_number = bpy.context.scene.frame_current
             # to show the score in the 3D view, the body of the ui text object
