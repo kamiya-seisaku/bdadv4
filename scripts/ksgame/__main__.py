@@ -15,6 +15,7 @@ sys.path.append(libdir)
 
 from flask_server import flask_server_wrapper
 import shared_stuff as sf
+from screen_share import ScreenShareCamera
 
 ## Utilities ##################################################################
 previous_txt = ""
@@ -140,6 +141,8 @@ def register():
     showTxt("register")
     global fsw
     fsw = flask_server_wrapper()
+    video_camera = ScreenShareCamera(0, 0, 800, 600)  # Adjust dimensions as needed
+
     # Start the web server in a separate thread
     threading.Thread(
         target=fsw.socketio.run,
