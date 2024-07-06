@@ -11,6 +11,7 @@ import utils
 
 ## Utils ##################################################################
 import bpy
+from screen_share import ScreenShareCamera
 
 previous_txt = ""
 
@@ -33,7 +34,18 @@ class flask_server_wrapper_class:
     showTxt(str(app))
     socketio = SocketIO(app)
     testvar = 0
-    
+ 
+    def __init__(self):
+        top, left, width, height = (
+            self.monitor["top"],
+            self.monitor["left"],
+            self.monitor["width"],
+            self.monitor["height"],
+        )
+
+        # Initialize the camera with positional arguments
+        self.video_camera = ScreenShareCamera(top, left, width, height)
+
     @socketio.on('connect')
     def handle_connect():
         showTxt('Client connected')

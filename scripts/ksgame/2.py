@@ -1,30 +1,27 @@
-# This code is written for a Blender indie game project "Uncirtain Days"
-# This code is published with the MIT license, as is, no support obligation.
-# Kamiya Seisaku, Kamiya Kei, 2024
-# ... (other imports)
-from screen_share import ScreenShareCamera  # Import the ScreenShareCamera class
-# ... (other imports)
+import bpy
+import os
+import sys
+import threading
+import time
 
+# Import the ScreenShareCamera class from the current directory
+from screen_share import ScreenShareCamera
 
-# ... (Utility functions, ModalTimerOperator class, menu_func remain the same)
-
-
+# ... (rest of your imports)
+# ... (your other classes and functions)
 
 def register():
     showTxt("register")
     global fsw
+
+    # Reload the screen_share module to ensure changes are reflected
+    import screen_share
+    import importlib
+    importlib.reload(screen_share)
+
+    # Now import ScreenShareCamera again
+    from screen_share import ScreenShareCamera  
+
     fsw = flask_server_wrapper()
 
-    video_camera = ScreenShareCamera(0, 0, 800, 600)  # Adjust dimensions as needed
-    
     # ... (rest of the register function remains the same)
-
-
-def unregister():
-    # ... (unregister function remains the same)
-
-
-if __name__ == "__main__":
-    register()
-#   bpy.ops.wm.modal_timer_operator()
-#   unregister()

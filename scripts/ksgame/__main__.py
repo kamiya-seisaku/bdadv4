@@ -140,6 +140,15 @@ def unregister():
 def register():
     showTxt("register")
     global fsw
+
+    # Reload the screen_share module to ensure changes are reflected
+    import screen_share
+    import importlib
+    importlib.reload(screen_share)
+
+    # Now import ScreenShareCamera again
+    from screen_share import ScreenShareCamera  
+
     fsw = flask_server_wrapper()
     video_camera = ScreenShareCamera(0, 0, 800, 600)  # Adjust dimensions as needed
 
