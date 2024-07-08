@@ -19,15 +19,19 @@ from screen_share import ScreenShareCamera
 
 ## Utilities ##################################################################
 previous_txt = ""
+previous_frame = 0
 
 def showTxt(txt):
     global previous_txt
-    if previous_txt == txt:
-        return
-    previous_txt = txt
-    print(str(txt))
+    global previous_frame
     text_obj_system = bpy.data.objects.get('ui.Text.system')
     text_obj_system.data.body = str(txt)    
+    
+    if bpy.data.scenes[0].frame_current - previous_frame >= 1:
+        print(f"showTxt: txt={txt}")
+        print(f"showTxt: previous_txt={previous_txt}")
+        print(str(txt))
+    previous_frame = bpy.data.scenes[0].frame_current
 
 ## modaltimer #############################################################
 class ModalTimerOperator(bpy.types.Operator):
@@ -47,8 +51,9 @@ class ModalTimerOperator(bpy.types.Operator):
             self.cancel(context)
             return {'CANCELLED'}
 
+        showTxt(f'1 in ModalTimerOperator/modal/if sf.key_input_g in A, D: sf.key_input_g = {sf.key_input_g}')
         if sf.key_input_g in {'A', 'D'}:
-            showTxt(f'in ModalTimerOperator/modal/if sf.key_input_g in A, D: sf.key_input_g = {sf.key_input_g}')
+            showTxt(f'2 in ModalTimerOperator/modal/if sf.key_input_g in A, D: sf.key_input_g = {sf.key_input_g}')
             self.key_handling(context, event, sf.key_input_g)
             return {'PASS_THROUGH'}
 
@@ -77,6 +82,7 @@ class ModalTimerOperator(bpy.types.Operator):
             # is set according to the same object's custom property "score"
             text_obj_fn.data.body = str(f"FN:{frame_number}")
             # key event handling
+            showTxt(key_input)
             if key_input == 'A':
                 if bike_mover.location.x < 1:
                     bike_mover.location.x += 0.5
@@ -145,7 +151,7 @@ def register():
     import screen_share
     import importlib
     importlib.reload(screen_share)
-    from screen_share import ScreenShareCamera  # import ScreenShareCamera again
+    from screen_share import ScreenShareCamera  # re-import ScreenShareCamera
 
     fsw = flask_server_wrapper()
     video_camera = ScreenShareCamera(0, 0, 800, 600)  # Adjust dimensions as needed

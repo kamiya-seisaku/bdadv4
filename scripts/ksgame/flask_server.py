@@ -14,16 +14,18 @@ class flask_server_wrapper:
     testvar = 0
     monitor = {"top": 100, "left": 100, "width": 800, "height": 800}  # Define capture area
     
-    def __init__(self):
-        self.video_camera = ScreenShareCamera(**self.monitor)  # Initialize the camera
+    # def __init__(self):
+    #     self.video_camera = ScreenShareCamera(**self.monitor)  # Initialize the camera
 
-    # def capture_and_stream(self):
-    #     with mss.mss() as sct:
-    #         while True:
-    #             img = sct.grab(self.monitor)
-    #             img = Image.frombytes("RGB", img.size, img.bgra, "raw", "BGRX")
-    #             self.socketio.emit('screen_data', img.tobytes(), namespace='/screen') 
-    #             # self.socketio.emit('screen_data', output.getvalue())
+    def __init__(self):
+        # Extract values as individual variables
+        top = self.monitor["top"]
+        left = self.monitor["left"]
+        width = self.monitor["width"]
+        height = self.monitor["height"]
+
+        # Initialize the camera with positional arguments
+        self.video_camera = ScreenShareCamera(top, left, width, height)
 
     def capture_and_stream(self):
         while True:
