@@ -1,3 +1,81 @@
+[folder structure]
+(root: "c:\codes\bdadv4")
+L[.]
+L[scripts]
+  L[ksgame]
+
+["server.js" codes]
+// to run the server: npm run devStart
+const express = require('express');
+const app = express();
+const https = require('http').createServer(app);
+const WebSocket = require('ws');
+const wss = new WebSocket.Server({ server:https });
+
+// deviated from:
+//  https://github.com/websockets/ws/blob/master/examples/express-session-parse/index.js
+//  https://github.com/websockets/ws/blob/master/examples/express-session-parse/public/app.js
+
+wss.on('connection', function (ws, request) {
+  // const userId = request.session.userId;
+  // map.set(userId, ws);
+
+  ws.on('error', console.error);
+
+
+  ws.on('message', function (message) {
+    //
+    // Here we can now use session parameters.
+    //
+    console.log(`Received message ${message}`);
+  });
+
+  // ws.on('message', function (message) {
+  //   //
+  //   // Here we can now use session parameters.
+  //   //
+  //   console.log(`on-connection: Received message ${message}`);
+  //   // ws.send("server.js:send-message:"+message);
+  //   ws.emit('server.js:emit-message:', JSON.stringify(message));
+
+
+  // });
+
+  ws.on('close', function () {
+    // map.delete(userId);
+  });
+});
+
+wss.on('upgrade', function (request, socket, head) {
+  console.log(`upgrade received`);
+
+  if (!ws) {
+    console.log('No WebSocket connection');
+    return;
+  };
+
+  ws.send('Hello World!');
+  console.log('Sent "Hello World!"');
+
+  wss.removeListener('error', onSocketError);
+
+  wss.handleUpgrade(request, socket, head, function (ws) {
+    wss.emit('connection', ws, request);
+  });
+});
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/public/index.html');
+    // res.sendFile(__dirname + '/public/main.js');
+});
+
+https.listen(3000, () => console.log(`Lisening on port :3000`))
+
+
+["scripts\CustomNodeGroup.py" codes]
+
+
+["scripts\ksgame\__main__.py" codes]
 # This code is written for a Blender indie game project "Uncirtain Days"
 # This code is published with the MIT license, as is, no support obligation.
 # Kamiya Seisaku, Kamiya Kei, 2024
@@ -29,6 +107,9 @@ previous_frame = 0
 #   "repeated_left"
 #   "new_left"
 
+def key_sm(): #key handling state machine
+    pass
+
 def showTxt(txt):
     global previous_txt
     global previous_frame
@@ -40,23 +121,6 @@ def showTxt(txt):
         print(f"showTxt: previous_txt={previous_txt}")
         print(str(txt))
     previous_frame = bpy.data.scenes[0].frame_current
-
-previous_input_key = ""
-def key_sm(input_key): #key handling state machine
-    global previous_input_key
-    if input_key == "":
-        previous_input_key = ""
-        showTxt("in key_sm, returning blank (previous was blank)")
-        return ""
-    else:
-        if previous_input_key == input_key:
-            previous_input_key = ""
-            showTxt("in key_sm, returning blank (repeated key input)")
-            return ""
-        else:
-            previous_input_key = input_key
-            showTxt(f"in key_sm, returning {input_key} (new non-blank key input)")
-            return input_key
 
 ## modaltimer #############################################################
 class ModalTimerOperator(bpy.types.Operator):
@@ -76,10 +140,9 @@ class ModalTimerOperator(bpy.types.Operator):
             self.cancel(context)
             return {'CANCELLED'}
 
-#        showTxt(f'1 in ModalTimerOperator/modal/if sf.key_input_g in A, D: sf.key_input_g = {sf.key_input_g}')
-
+        showTxt(f'1 in ModalTimerOperator/modal/if sf.key_input_g in A, D: sf.key_input_g = {sf.key_input_g}')
         if sf.key_input_g in {'A', 'D'}:
-#            showTxt(f'2 in ModalTimerOperator/modal/if sf.key_input_g in A, D: sf.key_input_g = {sf.key_input_g}')
+            showTxt(f'2 in ModalTimerOperator/modal/if sf.key_input_g in A, D: sf.key_input_g = {sf.key_input_g}')
             self.key_handling(context, event, sf.key_input_g)
             return {'PASS_THROUGH'}
 
@@ -92,12 +155,7 @@ class ModalTimerOperator(bpy.types.Operator):
         return {'PASS_THROUGH'}
 
     def key_handling(self, context, event, key_input):
-        processed_key = key_sm(key_input)
-        showTxt(f"in key_handling: processed_key={processed_key}")
-        if processed_key == "":
-            showTxt(f"in key_handling: repeated key")
-            return
-        # showTxt(f"in key_handling: key_input(arg of key_handling)= {key_input}")
+        showTxt(f"in key_handling: key_input(arg of key_handling)= {key_input}")
         bike_mover = bpy.data.objects.get('bike-mover')
         text_obj_toggle = bpy.data.objects.get('ui.Text.toggle')
         text_obj_fn = bpy.data.objects.get('ui.Text.FN')
@@ -209,3 +267,91 @@ def register():
 if __name__ == "__main__":
     register()
 #    bpy.ops.wm.modal_timer_operator()
+
+
+["scripts\ksgame\flask_server_wrapper.py" codes]
+## flask #####################################################################
+### global variables
+import bpy
+import sys
+from flask import Flask
+from flask_socketio import SocketIO
+
+from os import path as p
+sys.path.append(p.join(p.dirname(bpy.data.filepath), "scripts\ksgame"))
+import utils
+
+## Utils ##################################################################
+import bpy
+from screen_share import ScreenShareCamera
+
+previous_txt = ""
+
+def showTxt(txt):
+    global previous_txt
+    if previous_txt == txt:
+        return
+    previous_txt = txt
+    print(str(txt))
+    text_obj_key = bpy.data.objects.get('ui.Text.key')
+    text_obj_key.data.body = str(txt)    
+
+class flask_server_wrapper_class:
+    key_source = ""
+    key_input = ""
+
+    showTxt("flask_server_wrapper")
+    
+    app = Flask(__name__)
+    showTxt(str(app))
+    socketio = SocketIO(app)
+    testvar = 0
+ 
+    def __init__(self):
+        top, left, width, height = (
+            self.monitor["top"],
+            self.monitor["left"],
+            self.monitor["width"],
+            self.monitor["height"],
+        )
+
+        # Initialize the camera with positional arguments
+        self.video_camera = ScreenShareCamera(top, left, width, height)
+
+    @socketio.on('connect')
+    def handle_connect():
+        showTxt('Client connected')
+
+    @socketio.on('disconnect')
+    def handle_disconnect():
+        showTxt('Client disconnected')
+
+    @socketio.on('message')
+    def handle_message(message):
+#        import pdb; pdb.set_trace()
+        global key_input, key_source
+        key_source = "socketio"
+        showTxt(f'in flask_server_wrapper/handle_message, Received message {message}')
+        showTxt(f'in flask_server_wrapper/handle_message, initial global key_input: {key_input}')
+        key_input = ''  # Reset key input
+        if message[0:7]=='keyup':
+            key_input = ''
+        else:
+        # elif message[0:7]=='keydown:':
+            socket_key_input = message[8:9]
+            if socket_key_input in {'a', 'd'}:
+                key_input = socket_key_input.upper()
+                showTxt(f'in flask_server_wrapper, global key_input set:{key_input}')
+            else:
+                showTxt(f'Received non-a/d-message {message}')
+                showTxt(f'key_input:{key_input}')
+        showTxt(f'in flask_server_wrapper/handle_message, exiting global key_input: {key_input}')
+
+    @app.route('/')
+    def index():
+        return send_file('..\\public\\index.html')
+#        return send_file('../../public/index.html')
+
+# test code
+#c = flask_server_wrapper_class()
+#print(str(c))
