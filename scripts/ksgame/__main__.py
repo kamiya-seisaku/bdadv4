@@ -43,6 +43,7 @@ def showTxt(txt):
 
 previous_input_key = ""
 def key_sm(input_key): #key handling state machine
+    showTxt(f"in key_sm, input_key={input_key}")
     global previous_input_key
     if input_key == "":
         previous_input_key = ""

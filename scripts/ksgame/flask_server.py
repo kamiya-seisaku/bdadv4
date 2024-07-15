@@ -49,15 +49,21 @@ class flask_server_wrapper:
     @socketio.on('message')
     def handle_message(message):
 #        import pdb; pdb.set_trace()
+
+        print("in handle_message1")
         if sf.key_input_g == '':
             return
         sf.key_source_g = "socketio"
         sf.key_input_g = ''  # Reset key input
+        print("in handle_message2")
         if message[0:7]=='keyup':
+            print("in handle_message3")
             sf.key_input_g = ''
         else:
+            print("in handle_message4")
         # elif message[0:7]=='keydown:':
             socket_key_input = message[8:9]
+            # print(f"flask_server_wrapper/in handle_message: socket_key_input={socket_key_input}")
             if socket_key_input in {'a', 'd'}:
                 sf.key_input_g = socket_key_input.upper()
             else:
