@@ -2,7 +2,12 @@ from flask import Flask, send_file, Response, render_template
 from flask_socketio import SocketIO, emit
 import shared_stuff as sf
 import mss
+from io import BytesIO
 from PIL import Image
+import os
+import sys
+import ifaddr
+import re
 from screen_share import ScreenShareCamera
 
 ## flask #####################################################################
@@ -16,6 +21,14 @@ class flask_server_wrapper:
     
     # def __init__(self):
     #     self.video_camera = ScreenShareCamera(**self.monitor)  # Initialize the camera
+
+    def gen():
+        while True:
+            img_buffer = BytesIO()
+            ImageGrab.grab().save(img_buffer, 'JPEG', quality=50)
+            img_buffer.seek(0)
+            yield (b'--frame\r\n'
+                b'Content-Type: image/jpg\r\n\r\n' + img_buffer.read() + b'\r\n\r\n')
 
     def __init__(self):
         # Extract values as individual variables

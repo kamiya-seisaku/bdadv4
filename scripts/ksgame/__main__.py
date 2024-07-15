@@ -21,14 +21,6 @@ from screen_share import ScreenShareCamera
 previous_txt = ""
 previous_frame = 0
 
-# Receives:
-#   input_key: 'A', 'D'
-#   
-# Returns:
-#
-#   "repeated_left"
-#   "new_left"
-
 def showTxt(txt):
     global previous_txt
     global previous_frame
@@ -41,6 +33,11 @@ def showTxt(txt):
         print(str(txt))
     previous_frame = bpy.data.scenes[0].frame_current
 
+# key_sm: key handling state machine
+# Receives:
+#   input_key: 'A', 'D'
+# Returns:
+#   input_key, only if it is a non-repeated key input
 previous_input_key = ""
 def key_sm(input_key): #key handling state machine
     showTxt(f"in key_sm, input_key={input_key}")
