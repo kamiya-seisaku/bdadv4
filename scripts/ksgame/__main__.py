@@ -195,6 +195,7 @@ def register():
         kwargs={'allow_unsafe_werkzeug': True}  # For development purposes
     ).start()
 
+
     bpy.utils.register_class(ModalTimerOperator)
     bpy.types.VIEW3D_MT_view.append(menu_func)
 

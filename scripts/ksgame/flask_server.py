@@ -22,6 +22,7 @@ class flask_server_wrapper:
     # def __init__(self):
     #     self.video_camera = ScreenShareCamera(**self.monitor)  # Initialize the camera
 
+    # from python-screen-projector
     def gen():
         while True:
             img_buffer = BytesIO()
@@ -40,6 +41,22 @@ class flask_server_wrapper:
         # Initialize the camera with positional arguments
         self.video_camera = ScreenShareCamera(top, left, width, height)
 
+        # # from python-screen-projector
+        # def get_v4(ip, adapter):
+        #     if re.match(r"^((25[0-5]|(2[0-4]|1[0-9]|[1-9]|)[0-9])(\.(?!$)|$)){4}$", ip):
+        #         print(f'• Sharing screen on ip => http://{ip}:6999 \tof "{adapter}"')
+
+
+        # cli = sys.modules['flask.cli']
+        # cli.show_server_banner = lambda *x: None
+        # cli = lambda *x: None
+        # log = logging.getLogger('werkzeug')
+        # log.setLevel(logging.ERROR)
+
+        # APP_TITLE = """
+
+
+    # todo: to be deleted
     def capture_and_stream(self):
         while True:
             frame = self.video_camera.get_frame()
@@ -52,6 +69,7 @@ class flask_server_wrapper:
     @socketio.on('connect', namespace='/screen')
     def handle_connect():
         # showTxt('Client connected')
+        # todo: to be deleted
         self.socketio.start_background_task(self.capture_and_stream)
 
     @socketio.on('disconnect')
@@ -85,3 +103,7 @@ class flask_server_wrapper:
     @app.route('/')
     def index():
         return send_file('..\\..\\public\\index.html')
+
+    @app.route('/feed')
+    def video_feed():
+        return Response(gen(), mimetype='multipart/x-mixed-replace; boundary=frame')
