@@ -191,9 +191,13 @@ def register():
     # Start the web server in a separate thread
     threading.Thread(
         target=fsw.socketio.run,
-        args=(fsw.app, '0.0.0.0', 3000),
-        kwargs={'allow_unsafe_werkzeug': True}  # For development purposes
+        args=(fsw.app, '0.0.0.0', 6999),
+        kwargs={
+            'allow_unsafe_werkzeug': True,
+            'debug': True,
+        }  # For development purposes
     ).start()
+    # fsw.socketio.run(fsw.app, host='0.0.0.0', port=6999, debug=False)
 
 
     bpy.utils.register_class(ModalTimerOperator)

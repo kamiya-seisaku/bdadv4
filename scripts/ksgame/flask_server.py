@@ -4,6 +4,7 @@ import shared_stuff as sf
 import mss
 from io import BytesIO
 from PIL import Image
+from PIL import ImageGrab
 import os
 import sys
 import ifaddr
@@ -19,18 +20,6 @@ class flask_server_wrapper:
     testvar = 0
     monitor = {"top": 100, "left": 100, "width": 800, "height": 800}  # Define capture area
     
-    # def __init__(self):
-    #     self.video_camera = ScreenShareCamera(**self.monitor)  # Initialize the camera
-
-    # from python-screen-projector
-    def gen():
-        while True:
-            img_buffer = BytesIO()
-            ImageGrab.grab().save(img_buffer, 'JPEG', quality=50)
-            img_buffer.seek(0)
-            yield (b'--frame\r\n'
-                b'Content-Type: image/jpg\r\n\r\n' + img_buffer.read() + b'\r\n\r\n')
-
     def __init__(self):
         # Extract values as individual variables
         top = self.monitor["top"]
@@ -106,4 +95,13 @@ class flask_server_wrapper:
 
     @app.route('/feed')
     def video_feed():
+        def gen():
+            print("in gen")
+            while True:
+                img_buffer = BytesIO()
+                ImageGrab.grab().save(img_buffer, 'JPEG', quality=50)
+                img_buffer.seek(0)
+                yield (b'--frame\r\n'
+                    b'Content-Type: image/jpg\r\n\r\n' + img_buffer.read() + b'\r\n\r\n')
+
         return Response(gen(), mimetype='multipart/x-mixed-replace; boundary=frame')
