@@ -1,11 +1,16 @@
+# Todo
+#   1 [Issue] capture from blender window not screen
+#   2 [Issue] initially chrome key not working until clicked in blender 
+#   2 [Issue] blender key only partially working 
+#   3 [pub] installation.
+#   3 [pub] now make a video.
+
 # This code is written for a Blender indie game project "Uncirtain Days"
 # This code is published with the MIT license, as is, no support obligation.
 # Kamiya Seisaku, Kamiya Kei, 2024
 import bpy
 import os
 import glob
-#from flask_socketio import SocketIO, emit
-#import threading
 import os
 import sys
 import threading
@@ -74,10 +79,12 @@ class ModalTimerOperator(bpy.types.Operator):
             self.cancel(context)
             return {'CANCELLED'}
 
-#        showTxt(f'1 in ModalTimerOperator/modal/if sf.key_input_g in A, D: sf.key_input_g = {sf.key_input_g}')
+        #HUD updates-------------------------------------------------
+        text_obj_fn = bpy.data.objects.get('ui.Text.FN')
+        frame_number = bpy.context.scene.frame_current
+        text_obj_fn.data.body = str(f"FN:{frame_number}")
 
         if sf.key_input_g in {'A', 'D'}:
-#            showTxt(f'2 in ModalTimerOperator/modal/if sf.key_input_g in A, D: sf.key_input_g = {sf.key_input_g}')
             self.key_handling(context, event, sf.key_input_g)
             return {'PASS_THROUGH'}
 
@@ -90,36 +97,34 @@ class ModalTimerOperator(bpy.types.Operator):
         return {'PASS_THROUGH'}
 
     def key_handling(self, context, event, key_input):
+        # text_obj_toggle = bpy.data.objects.get('ui.Text.toggle')
+        # if text_obj_toggle.data.body == str(f"bike_mover is moving"):
+        #     # bike_mover["is_moving"] = False
+        #     text_obj_toggle.data.body = str(f"bike_mover is not moving")
+        # else:
+        #     # bike_mover["is_moving"] = True
+        #     text_obj_toggle.data.body = str(f"bike_mover is moving")
+        #     et = event.type
+        #     frame_number = bpy.context.scene.frame_current
+        #     # to show the score in the 3D view, the body of the ui text object
+        #     # is set according to the same object's custom property "score"
+        #     text_obj_fn.data.body = str(f"FN:{frame_number}")
+        #     # key event handling
+        #     showTxt(key_input)
         processed_key = key_sm(key_input)
-        showTxt(f"in key_handling: processed_key={processed_key}")
+        # showTxt(f"in key_handling: processed_key={processed_key}")
         if processed_key == "":
             showTxt(f"in key_handling: repeated key")
             return
-        # showTxt(f"in key_handling: key_input(arg of key_handling)= {key_input}")
         bike_mover = bpy.data.objects.get('bike-mover')
-        text_obj_toggle = bpy.data.objects.get('ui.Text.toggle')
-        text_obj_fn = bpy.data.objects.get('ui.Text.FN')
-        if text_obj_toggle.data.body == str(f"bike_mover is moving"):
-            # bike_mover["is_moving"] = False
-            text_obj_toggle.data.body = str(f"bike_mover is not moving")
-        else:
-            # bike_mover["is_moving"] = True
-            text_obj_toggle.data.body = str(f"bike_mover is moving")
-            et = event.type
-            frame_number = bpy.context.scene.frame_current
-            # to show the score in the 3D view, the body of the ui text object
-            # is set according to the same object's custom property "score"
-            text_obj_fn.data.body = str(f"FN:{frame_number}")
-            # key event handling
-            showTxt(key_input)
-            if key_input == 'A':
-                if bike_mover.location.x < 1:
-                    bike_mover.location.x += 0.5
-            if key_input == 'D':
-                if bike_mover.location.x > -1:
-                    bike_mover.location.x -= 0.5
-            bpy.context.view_layer.objects.active = bike_mover #Need this to make location changes into blender data
-            bpy.context.view_layer.update() #Need this for the change to be visible in 3D View
+        if key_input == 'A':
+            if bike_mover.location.x < 1:
+                bike_mover.location.x += 0.5
+        if key_input == 'D':
+            if bike_mover.location.x > -1:
+                bike_mover.location.x -= 0.5
+        bpy.context.view_layer.objects.active = bike_mover #Need this to make location changes into blender data
+        bpy.context.view_layer.update() #Need this for the change to be visible in 3D View
             
         return
 
