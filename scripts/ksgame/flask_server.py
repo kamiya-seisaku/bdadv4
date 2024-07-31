@@ -99,7 +99,9 @@ class flask_server_wrapper:
             print("in gen")
             while True:
                 img_buffer = BytesIO()
-                ImageGrab.grab().save(img_buffer, 'JPEG', quality=50)
+                x, y, width, height = 0, 75, 2000, 1500
+                ImageGrab.grab(bbox =(x, y, x + width, y + height)).save(img_buffer, 'JPEG', quality=50) # from bdadv5 2024/8/1
+                # ImageGrab.grab().save(img_buffer, 'JPEG', quality=50)
                 img_buffer.seek(0)
                 yield (b'--frame\r\n'
                     b'Content-Type: image/jpg\r\n\r\n' + img_buffer.read() + b'\r\n\r\n')
