@@ -1,0 +1,1999 @@
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=unregister
+showTxt: previous_txt=
+unregister
+Traceback (most recent call last):
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 83, in modal
+    self.cancel(context)
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 183, in cancel
+    unregister()
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 200, in unregister
+    fsw.socketio.stop()
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\flask_socketio\__init__.py", line 726, in stop
+    func = flask.request.environ.get('werkzeug.server.shutdown')
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 311, in __get__
+    obj = instance._get_current_object()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 508, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request. Consult the documentation on testing for
+information about how to avoid this problem.
+Error: Python: Traceback (most recent call last):
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 311, in __get__
+    obj = instance._get_current_object()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 508, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request. Consult the documentation on testing for
+information about how to avoid this problem.
+
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=unregister
+showTxt: previous_txt=
+unregister
+Traceback (most recent call last):
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 83, in modal
+    self.cancel(context)
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 183, in cancel
+    unregister()
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 200, in unregister
+    fsw.socketio.stop()
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\flask_socketio\__init__.py", line 726, in stop
+    func = flask.request.environ.get('werkzeug.server.shutdown')
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 311, in __get__
+    obj = instance._get_current_object()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 508, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request. Consult the documentation on testing for
+information about how to avoid this problem.
+Error: Python: Traceback (most recent call last):
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 311, in __get__
+    obj = instance._get_current_object()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 508, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request. Consult the documentation on testing for
+information about how to avoid this problem.
+
+Info: Saved "game.blend"
+
+showTxt: txt=register
+showTxt: previous_txt=
+register
+register_class(...):
+Info: Registering operator class: 'ModalTimerOperator', bl_idname 'wm.modal_timer_operator' has been registered before, unregistering previous
+ * Serving Flask app 'flask_server'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:6999
+ * Running on http://192.168.3.6:6999
+Press CTRL+C to quit
+Exception in thread Thread-186 (run):
+Traceback (most recent call last):
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\flask_socketio\__init__.py", line 650, in run
+    app.run(host=host, port=port, threaded=True,
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\flask\app.py", line 615, in run
+    run_simple(t.cast(str, host), port, self, **options)
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\serving.py", line 1099, in run_simple
+    run_with_reloader(
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\_reloader.py", line 439, in run_with_reloader
+    signal.signal(signal.SIGTERM, lambda *args: sys.exit(0))
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\signal.py", line 56, in signal
+    handler = _signal.signal(_enum_to_int(signalnum), _enum_to_int(handler))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: signal only works in main thread of the main interpreter
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=unregister
+showTxt: previous_txt=
+unregister
+Traceback (most recent call last):
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 83, in modal
+    self.cancel(context)
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 184, in cancel
+    #        self.fsw.socketio.stop()
+            ^^^^^^^^^^^^
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 201, in unregister
+    bpy.utils.unregister_class(ModalTimerOperator)
+    ^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\flask_socketio\__init__.py", line 726, in stop
+    func = flask.request.environ.get('werkzeug.server.shutdown')
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 311, in __get__
+    obj = instance._get_current_object()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 508, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request. Consult the documentation on testing for
+information about how to avoid this problem.
+Error: Python: Traceback (most recent call last):
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 311, in __get__
+    obj = instance._get_current_object()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 508, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request. Consult the documentation on testing for
+information about how to avoid this problem.
+
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=unregister
+showTxt: previous_txt=
+unregister
+Traceback (most recent call last):
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 83, in modal
+    self.cancel(context)
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 184, in cancel
+    #        self.fsw.socketio.stop()
+            ^^^^^^^^^^^^
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 201, in unregister
+    bpy.utils.unregister_class(ModalTimerOperator)
+    ^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\flask_socketio\__init__.py", line 726, in stop
+    func = flask.request.environ.get('werkzeug.server.shutdown')
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 311, in __get__
+    obj = instance._get_current_object()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 508, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request. Consult the documentation on testing for
+information about how to avoid this problem.
+Error: Python: Traceback (most recent call last):
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 311, in __get__
+    obj = instance._get_current_object()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 508, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request. Consult the documentation on testing for
+information about how to avoid this problem.
+
+Info: Saved "game.blend"
+
+Info: Saved text "c:\codes\bdadv4\scripts\ksgame\__main__.py"
+
+showTxt: txt=register
+showTxt: previous_txt=
+register
+register_class(...):
+Info: Registering operator class: 'ModalTimerOperator', bl_idname 'wm.modal_timer_operator' has been registered before, unregistering previous
+ * Serving Flask app 'flask_server'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:6999
+ * Running on http://192.168.3.6:6999
+Press CTRL+C to quit
+Exception in thread Thread-190 (run):
+Traceback (most recent call last):
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\flask_socketio\__init__.py", line 650, in run
+    app.run(host=host, port=port, threaded=True,
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\flask\app.py", line 615, in run
+    run_simple(t.cast(str, host), port, self, **options)
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\serving.py", line 1099, in run_simple
+    run_with_reloader(
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\_reloader.py", line 439, in run_with_reloader
+    signal.signal(signal.SIGTERM, lambda *args: sys.exit(0))
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\signal.py", line 56, in signal
+    handler = _signal.signal(_enum_to_int(signalnum), _enum_to_int(handler))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: signal only works in main thread of the main interpreter
+Traceback (most recent call last):
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 155, in execute
+    sf.key_input_g = event.type
+                     ^^^^^
+NameError: name 'event' is not defined
+Error: Python: Traceback (most recent call last):
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 155, in execute
+    sf.key_input_g = event.type
+                     ^^^^^
+NameError: name 'event' is not defined
+
+Info: Saved "game.blend"
+
+Info: Saved text "c:\codes\bdadv4\scripts\ksgame\__main__.py"
+
+showTxt: txt=register
+showTxt: previous_txt=
+register
+register_class(...):
+Info: Registering operator class: 'ModalTimerOperator', bl_idname 'wm.modal_timer_operator' has been registered before, unregistering previous
+ * Serving Flask app 'flask_server'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:6999
+ * Running on http://192.168.3.6:6999
+Press CTRL+C to quit
+Exception in thread Thread-192 (run):
+Traceback (most recent call last):
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\flask_socketio\__init__.py", line 650, in run
+    app.run(host=host, port=port, threaded=True,
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\flask\app.py", line 615, in run
+    run_simple(t.cast(str, host), port, self, **options)
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\serving.py", line 1099, in run_simple
+    run_with_reloader(
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\_reloader.py", line 439, in run_with_reloader
+    signal.signal(signal.SIGTERM, lambda *args: sys.exit(0))
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\signal.py", line 56, in signal
+    handler = _signal.signal(_enum_to_int(signalnum), _enum_to_int(handler))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: signal only works in main thread of the main interpreter
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=RET
+showTxt: previous_txt=
+in modal1: event.type=RET
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=D
+showTxt: previous_txt=
+in modal1: event.type=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=unregister
+showTxt: previous_txt=
+unregister
+Traceback (most recent call last):
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 83, in modal
+    self.cancel(context)
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 187, in cancel
+    unregister()
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 204, in unregister
+    fsw.socketio.stop()
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\flask_socketio\__init__.py", line 726, in stop
+    func = flask.request.environ.get('werkzeug.server.shutdown')
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 311, in __get__
+    obj = instance._get_current_object()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 508, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request. Consult the documentation on testing for
+information about how to avoid this problem.
+Error: Python: Traceback (most recent call last):
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 311, in __get__
+    obj = instance._get_current_object()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 508, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request. Consult the documentation on testing for
+information about how to avoid this problem.
+
+showTxt: txt=in modal1: event.type=MOUSEMOVE
+showTxt: previous_txt=
+in modal1: event.type=MOUSEMOVE
+showTxt: txt=in modal1: event.type=RET
+showTxt: previous_txt=
+in modal1: event.type=RET
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=A
+showTxt: previous_txt=
+in modal1: event.type=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=in key_sm, input_key=A
+showTxt: previous_txt=
+in key_sm, input_key=A
+showTxt: txt=unregister
+showTxt: previous_txt=
+unregister
+Traceback (most recent call last):
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 83, in modal
+    self.cancel(context)
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 187, in cancel
+    unregister()
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 204, in unregister
+    fsw.socketio.stop()
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\flask_socketio\__init__.py", line 726, in stop
+    func = flask.request.environ.get('werkzeug.server.shutdown')
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 311, in __get__
+    obj = instance._get_current_object()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 508, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request. Consult the documentation on testing for
+information about how to avoid this problem.
+Error: Python: Traceback (most recent call last):
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 311, in __get__
+    obj = instance._get_current_object()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 508, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request. Consult the documentation on testing for
+information about how to avoid this problem.
+
+Info: Saved "game.blend"
+
+Info: Saved text "c:\codes\bdadv4\scripts\ksgame\__main__.py"
+
+Info: Saved "game.blend"
+
+Info: Saved text "c:\codes\bdadv4\scripts\ksgame\__main__.py"
+
+showTxt: txt=register
+showTxt: previous_txt=
+register
+register_class(...):
+Info: Registering operator class: 'ModalTimerOperator', bl_idname 'wm.modal_timer_operator' has been registered before, unregistering previous
+ * Serving Flask app 'flask_server'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:6999
+ * Running on http://192.168.3.6:6999
+Press CTRL+C to quit
+Exception in thread Thread-196 (run):
+Traceback (most recent call last):
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\threading.py", line 982, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\flask_socketio\__init__.py", line 650, in run
+    app.run(host=host, port=port, threaded=True,
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\flask\app.py", line 615, in run
+    run_simple(t.cast(str, host), port, self, **options)
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\serving.py", line 1099, in run_simple
+    run_with_reloader(
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\_reloader.py", line 439, in run_with_reloader
+    signal.signal(signal.SIGTERM, lambda *args: sys.exit(0))
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\signal.py", line 56, in signal
+    handler = _signal.signal(_enum_to_int(signalnum), _enum_to_int(handler))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: signal only works in main thread of the main interpreter
+showTxt: txt=in modal1: event.type=MOUSEMOVE
+showTxt: previous_txt=
+in modal1: event.type=MOUSEMOVE
+showTxt: txt=in modal1: event.type=RET
+showTxt: previous_txt=
+in modal1: event.type=RET
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER_REPORT
+showTxt: previous_txt=
+in modal1: event.type=TIMER_REPORT
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=TIMER0
+showTxt: previous_txt=
+in modal1: event.type=TIMER0
+showTxt: txt=in modal1: event.type=D
+showTxt: previous_txt=
+in modal1: event.type=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=in key_sm, input_key=D
+showTxt: previous_txt=
+in key_sm, input_key=D
+showTxt: txt=unregister
+showTxt: previous_txt=
+unregister
+Traceback (most recent call last):
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 83, in modal
+    self.cancel(context)
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 187, in cancel
+    unregister()
+  File "c:\codes\bdadv4\game.blend\__main__.py", line 204, in unregister
+    fsw.socketio.stop()
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\flask_socketio\__init__.py", line 726, in stop
+    func = flask.request.environ.get('werkzeug.server.shutdown')
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 311, in __get__
+    obj = instance._get_current_object()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 508, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request. Consult the documentation on testing for
+information about how to avoid this problem.
+Error: Python: Traceback (most recent call last):
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 311, in __get__
+    obj = instance._get_current_object()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\bin\blender-4.1.0-windows-x64\4.1\python\Lib\site-packages\werkzeug\local.py", line 508, in _get_current_object
+    raise RuntimeError(unbound_message) from None
+RuntimeError: Working outside of request context.
+
+This typically means that you attempted to use functionality that needed
+an active HTTP request. Consult the documentation on testing for
+information about how to avoid this problem.
+

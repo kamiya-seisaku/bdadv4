@@ -1,9 +1,13 @@
 # Todo
 #   1 [Issue] capture from blender window not screen
-#   2 [Issue] initially chrome key not working until clicked in blender 
-#   2 [Issue] blender key only partially working 
-#   3 [pub] installation.
-#   3 [pub] now make a video.
+#   1 [Issue] initially chrome key not working until clicked in blender 
+#   1 [Issue] blender key only partially working 
+#   1 [pub] keep it minimal. no need to impless the world now.  not many people will see it anyway.
+#      1.1 [pub] score.
+#         1.1 [pub] note sequence.
+#      1.1 [pub] brick reaction.
+#      1.1 [pub] installation guide.
+#      1.1 [pub] now make a video.
 
 # This code is written for a Blender indie game project "Uncirtain Days"
 # This code is published with the MIT license, as is, no support obligation.
@@ -84,35 +88,26 @@ class ModalTimerOperator(bpy.types.Operator):
         frame_number = bpy.context.scene.frame_current
         text_obj_fn.data.body = str(f"FN:{frame_number}")
 
-        if sf.key_input_g in {'A', 'D'}:
-            self.key_handling(context, event, sf.key_input_g)
-            return {'PASS_THROUGH'}
-
+        showTxt(f"in modal1: event.type={event.type}")
         if event.type in {'A', 'D'}:
+            showTxt(f"in modal2: event.type={event.type}")
+
             sf.key_source_g = "blender event"
             sf.key_input_g = event.type
+            self.key_handling(context, event, event.type)
+            return {'PASS_THROUGH'}
+
+        if sf.key_input_g in {'A', 'D'}:
             self.key_handling(context, event, sf.key_input_g)
             return {'PASS_THROUGH'}
 
         return {'PASS_THROUGH'}
 
     def key_handling(self, context, event, key_input):
-        # text_obj_toggle = bpy.data.objects.get('ui.Text.toggle')
-        # if text_obj_toggle.data.body == str(f"bike_mover is moving"):
-        #     # bike_mover["is_moving"] = False
-        #     text_obj_toggle.data.body = str(f"bike_mover is not moving")
-        # else:
-        #     # bike_mover["is_moving"] = True
-        #     text_obj_toggle.data.body = str(f"bike_mover is moving")
-        #     et = event.type
-        #     frame_number = bpy.context.scene.frame_current
-        #     # to show the score in the 3D view, the body of the ui text object
-        #     # is set according to the same object's custom property "score"
-        #     text_obj_fn.data.body = str(f"FN:{frame_number}")
-        #     # key event handling
-        #     showTxt(key_input)
+        sf.key_input_g = ""s
+        # move bike ###############################################
         processed_key = key_sm(key_input)
-        # showTxt(f"in key_handling: processed_key={processed_key}")
+        showTxt(f"in key_handling: processed_key={processed_key}")
         if processed_key == "":
             showTxt(f"in key_handling: repeated key")
             return
@@ -126,9 +121,25 @@ class ModalTimerOperator(bpy.types.Operator):
         bpy.context.view_layer.objects.active = bike_mover #Need this to make location changes into blender data
         bpy.context.view_layer.update() #Need this for the change to be visible in 3D View
             
+        # donut hit ###############################################
+        # Scoring logic
+        frame_index = (bpy.context.scene.frame_current - 1) % 16  # Adjust for your frame start
+        song = [4, 1, 4, 1, 4, 2, 4, 1] * 4  # Example song, 4x4 pattern repeated
+        target_x = song[frame_index] - 2  # Convert note to x position (-1 to 1)
+        showTxt(f"target_x={target_x}")
+        showTxt(f"bike_mover.location.x={bike_mover.location.x}")
+        showTxt(f"if condition = {abs(bike_mover.location.x - target_x) < 0.25}")
+        # Check if player hit the correct note
+        if abs(bike_mover.location.x - target_x) < 0.25:  # Tolerance for hit
+            score_obj = bpy.data.objects.get('ui.Text.score')
+            score_obj["score"] += 1
+            showTxt("scode +1")
         return
 
     def execute(self, context):
+        sf.key_source_g = ""
+        sf.key_input_g = ""
+
         global previous_txt
         global previous_frame
         previous_txt = ""
@@ -185,13 +196,13 @@ def register():
     global fsw
 
     # Reload the screen_share module to ensure changes are reflected
-    import screen_share
-    import importlib
-    importlib.reload(screen_share)
-    from screen_share import ScreenShareCamera  # re-import ScreenShareCamera
+    # import screen_share
+    # import importlib
+    # importlib.reload(screen_share)
+    # from screen_share import ScreenShareCamera  # re-import ScreenShareCamera
 
     fsw = flask_server_wrapper()
-    video_camera = ScreenShareCamera(0, 0, 800, 600)  # Adjust dimensions as needed
+    # video_camera = ScreenShareCamera(0, 0, 800, 600)  # Adjust dimensions as needed
 
     # Start the web server in a separate thread
     threading.Thread(
@@ -199,11 +210,10 @@ def register():
         args=(fsw.app, '0.0.0.0', 6999),
         kwargs={
             'allow_unsafe_werkzeug': True,
-            'debug': False,
+            'debug': True,
         }  # For development purposes
     ).start()
     # fsw.socketio.run(fsw.app, host='0.0.0.0', port=6999, debug=False)
-
 
     bpy.utils.register_class(ModalTimerOperator)
     bpy.types.VIEW3D_MT_view.append(menu_func)

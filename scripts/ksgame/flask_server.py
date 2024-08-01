@@ -106,4 +106,5 @@ class flask_server_wrapper:
                 yield (b'--frame\r\n'
                     b'Content-Type: image/jpg\r\n\r\n' + img_buffer.read() + b'\r\n\r\n')
 
-        return Response(gen(), mimetype='multipart/x-mixed-replace; boundary=frame')
+        return
+        # return Response(gen(), mimetype='multipart/x-mixed-replace; boundary=frame')
