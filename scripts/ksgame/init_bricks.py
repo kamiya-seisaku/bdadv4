@@ -5,7 +5,7 @@ def init_bricks():
     # Instead of using a class and store data in it, 
     #   (which was a failed attempt, since random and frequent data losses) 
     #   this function stores data as objects.
-    sequence = [1, 2, 0, 3, 0, 2, 0, 3, 0, 2, 1, 2, 0, 1, 2, 0, 0, 3, 0, 4, 0, 3, 4, 3, 2, 1]
+    sequence = [4, 3, 2, 1, 1, 2, 3, 4, 0, 2, 1, 2, 0, 1, 2, 0, 0, 3, 0, 4, 0, 3, 4, 3, 2, 1]
     # path_brick = bpy.data.objects.get('path_brick')
     rectangles = []
 

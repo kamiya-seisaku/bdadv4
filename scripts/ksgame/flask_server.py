@@ -106,5 +106,10 @@ class flask_server_wrapper:
                 yield (b'--frame\r\n'
                     b'Content-Type: image/jpg\r\n\r\n' + img_buffer.read() + b'\r\n\r\n')
 
-        return
-        # return Response(gen(), mimetype='multipart/x-mixed-replace; boundary=frame')
+        if sf.debug_flug:
+            return_val = None
+        else:
+            return_val = Response(gen(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+        return return_val
+        # original code not using debug_flug: return Response(gen(), mimetype='multipart/x-mixed-replace; boundary=frame')
