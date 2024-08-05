@@ -1,27 +1,37 @@
-# Todo
-#   1 [Issue] capture from blender window not screen
-#   1 [Issue] initially chrome key not working until clicked in blender 
-#   1 [Issue] blender key only partially working 
-#   1 [pub] keep it minimal. no need to impless the world now.  not many people will see it anyway.
+# [Todo]
+# web not working
+#   1 [pub] publih poc.
 #      1.1 [pub] score.
 #         1.1 [pub] note sequence.
 #      1.1 [pub] brick reaction.
 #      1.1 [pub] installation guide.
 #      1.1 [pub] now make a video.
+#   1 [Issue] capture from blender window not screen
+#   1 [Issue] initially chrome key not working until clicked in blender 
+# [Ideas]
+#   1 servant/maid cafe shop clening game
+#   1 music game
+#   1 dance input/whistle input/air drums input/sequencer/fan copy
+#   1 scene ideas/fan copy games from music videos(miku miku beam,soul soup,universe,tokyo flash,time paradox)
+# [Done]
+#   1 [Issue] blender key only partially working 
 
 # This code is written for a Blender indie game project "Uncirtain Days"
 # This code is published with the MIT license, as is, no support obligation.
 # Kamiya Seisaku, Kamiya Kei, 2024
 import bpy
 import os
-import glob
-import os
+# import glob
+# import os
 import sys
 import threading
 dir = os.path.dirname(bpy.data.filepath)
 libdir = os.path.join(dir, "scripts", "ksgame")
 sys.path.append(libdir)
 
+import importlib
+import flask_server
+importlib.reload(flask_server)
 from flask_server import flask_server_wrapper
 import shared_stuff as sf
 import keymap as km
@@ -38,8 +48,6 @@ def showTxt(txt):
     text_obj_system.data.body = str(txt)
     
     if bpy.data.scenes[0].frame_current - previous_frame >= 1:
-#        print(f"showTxt: txt={txt}")
-#        print(f"showTxt: previous_txt={previous_txt}")
         print(str(txt))
     previous_frame = bpy.data.scenes[0].frame_current
 
@@ -50,24 +58,20 @@ def showTxt(txt):
 #   input_key, only if it is a non-repeated key input
 previous_input_key = ""
 def key_sm(input_key): #key handling state machine
-    showTxt(f"in key_sm, input_key={input_key}")
     global previous_input_key
 
     if input_key == "":
         previous_input_key = ""
-        showTxt("in key_sm, returning blank (previous was blank)")
         return ""
     else:
         if previous_input_key == input_key:
             previous_input_key = ""
-            showTxt("in key_sm, returning blank (repeated key input)")
             return ""
         else:
             previous_input_key = input_key
             current_frame = bpy.context.scene.frame_current
             if current_frame%1: #avoid repeats by resetting input_key every 10 frames
                 input_key = ""
-            showTxt(f"in key_sm, returning {input_key} (new non-blank key input)")
             return input_key
 
 ## modaltimer #############################################################
@@ -93,26 +97,20 @@ class ModalTimerOperator(bpy.types.Operator):
         frame_number = bpy.context.scene.frame_current
         text_obj_fn.data.body = str(f"FN:{frame_number}")
 
+        #Key input handling -----------------------------------------
+        if sf.key_input_g in {'A', 'D'}:
+            self.key_handling(context, event, sf.key_input_g)
+            return {'PASS_THROUGH'}
+
         if event.type in {'A', 'D'}:
             sf.key_source_g = "blender event"
             sf.key_input_g = event.type
             self.key_handling(context, event, event.type)
             return {'PASS_THROUGH'}
 
-        if sf.key_input_g in {'A', 'D'}:
-            self.key_handling(context, event, sf.key_input_g)
-            return {'PASS_THROUGH'}
-
         return {'PASS_THROUGH'}
 
-    def key_handling(self, context, event, key_input):
-        sf.key_input_g = ""
-        # move bike ###############################################
-        processed_key = key_sm(key_input)
-        showTxt(f"in key_handling: processed_key={processed_key}")
-        if processed_key == "":
-            showTxt(f"in key_handling: repeated key")
-            return
+    def move_bike(self, context, event, key_input):
         bike_mover = bpy.data.objects.get('bike-mover')
         if key_input == 'A':
             if bike_mover.location.x < 1:
@@ -121,7 +119,45 @@ class ModalTimerOperator(bpy.types.Operator):
             if bike_mover.location.x > -1:
                 bike_mover.location.x -= 0.5
         bpy.context.view_layer.objects.active = bike_mover #Need this to make location changes into blender data
-        bpy.context.view_layer.update() #Need this for the change to be visible in 3D View
+
+    def move_focus(self, context, event, key_input):
+        showTxt("in move_focus1")
+
+        # debug
+        focus = bpy.data.objects.get('focus-mover')
+
+#        if key_input == 'A':
+#            focus.location.x += 0.5
+#        if key_input == 'D':
+#            focus.location.x -= 0.5
+#        bpy.context.view_layer.objects.active = focus #Need this to make 
+#        
+#        #debug s       
+#        if 1:
+#            return
+        
+        frame_index = (bpy.context.scene.frame_current - 160) % 16  # Adjust for your frame start
+        song = [4, 3, 2, 1, 1, 2, 3, 4, 0, 2, 1, 2, 0, 1, 2, 0, 0, 3, 0, 4, 0, 3, 4, 3, 2, 1]
+        # song = [4, 1, 4, 1, 4, 2, 4, 1] * 4  # Example song, 4x4 pattern repeated
+        interval = -4.0
+        offset = -2.0
+
+        focus.location.x = song[frame_index ] - 2
+#        focus.location.y = 0
+        focus.location.y = offset + frame_index * interval
+        focus.location.z = 4
+
+        bpy.context.view_layer.objects.active = focus
+
+    def key_handling(self, context, event, key_input):
+        sf.key_input_g = ""
+        processed_key = key_sm(key_input)
+        if processed_key == "":
+            return
+
+        self.move_bike(context, event, key_input)
+        self.move_focus(context, event, key_input)
+        
             
         # donut hit ###############################################
         # Scoring logic
@@ -138,13 +174,19 @@ class ModalTimerOperator(bpy.types.Operator):
 
         showTxt(f"focus.location.x = {focus.location.x}")
         # Check if player hit the correct note
+
+        bike_mover = bpy.data.objects.get('bike-mover')
         if abs(bike_mover.location.x - focus.location.x) < 0.25:  # Tolerance for hit
             score_obj = bpy.data.objects.get('ui.Text.score')
             score_obj["score"] += 1
             showTxt("scode +1")
+
+        bpy.context.view_layer.update() #Need this for the object changes to be visible in 3D View
         return
 
     def execute(self, context):
+        km.set_obj_select_keymap("off")
+
         sf.key_source_g = ""
         sf.key_input_g = ""
 
@@ -177,6 +219,7 @@ class ModalTimerOperator(bpy.types.Operator):
         return {'RUNNING_MODAL'}
 
     def cancel(self, context):
+        km.set_obj_select_keymap("on")
         bpy.app.handlers.frame_change_post.remove(self.modal)
         unregister()
 #        self.fsw.socketio.stop()
@@ -194,7 +237,6 @@ def menu_func(self, context):
 # Register and add to the "view" menu (required to also use F3 search "Modal Timer Operator" for quick access).
 def unregister():
     showTxt("unregister")
-    km.set_obj_select_keymap("on")
     global fsw
     fsw.socketio.stop()
     bpy.utils.unregister_class(ModalTimerOperator)
@@ -202,7 +244,6 @@ def unregister():
 
 def register():
     showTxt("register")
-    km.set_obj_select_keymap("off")
     global fsw
 
     fsw = flask_server_wrapper()

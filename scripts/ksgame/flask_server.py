@@ -70,9 +70,9 @@ class flask_server_wrapper:
     def handle_message(message):
 #        import pdb; pdb.set_trace()
 
-        print("in handle_message1")
-        if sf.key_input_g == '':
-            return
+        print(f"in handle_message1: sf.key_input_g={sf.key_input_g}")
+        # if sf.key_input_g == '':
+        #     return
         sf.key_source_g = "socketio"
         sf.key_input_g = ''  # Reset key input
         print("in handle_message2")
