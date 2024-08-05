@@ -84,7 +84,6 @@ class ModalTimerOperator(bpy.types.Operator):
         pass
 
     def modal(self, context, event):
-        current_frame = bpy.context.scene.frame_current
         if isinstance(event, bpy.types.Event) == False:
             return {'PASS_THROUGH'}
 
@@ -92,10 +91,25 @@ class ModalTimerOperator(bpy.types.Operator):
             self.cancel(context)
             return {'CANCELLED'}
 
+#        if event.type == 'TIMER':
+#            bpy.data.objects[op_cls.__text_object_name].data.body = datetime.datetime.now().strftime("%Y.%m.%d %H:%M:%S")
+
+#        return {'PASS_THROUGH'}
+
         #HUD updates-------------------------------------------------
         text_obj_fn = bpy.data.objects.get('ui.Text.FN')
-        frame_number = bpy.context.scene.frame_current
-        text_obj_fn.data.body = str(f"FN:{frame_number}")
+        current_frame = bpy.context.scene.frame_current
+        text_obj_fn.data.body = str(f"FN:{current_frame}")
+
+        self.move_focus(context, event, "")
+        current_frame = bpy.context.scene.frame_current
+
+        bpy.context.view_layer.update()
+        # Redraw viewport (optional but recommended)
+        bpy.ops.wm.redraw_timer(type='DRAW_WIN_SWAP', iterations=1)
+
+
+
 
         #Key input handling -----------------------------------------
         if sf.key_input_g in {'A', 'D'}:
@@ -107,6 +121,8 @@ class ModalTimerOperator(bpy.types.Operator):
             sf.key_input_g = event.type
             self.key_handling(context, event, event.type)
             return {'PASS_THROUGH'}
+
+        bpy.context.view_layer.update()
 
         return {'PASS_THROUGH'}
 
@@ -124,30 +140,18 @@ class ModalTimerOperator(bpy.types.Operator):
         showTxt("in move_focus1")
 
         # debug
-        focus = bpy.data.objects.get('focus-mover')
-
-#        if key_input == 'A':
-#            focus.location.x += 0.5
-#        if key_input == 'D':
-#            focus.location.x -= 0.5
-#        bpy.context.view_layer.objects.active = focus #Need this to make 
-#        
-#        #debug s       
-#        if 1:
-#            return
+        focus = bpy.data.objects.get('focus')
         
-        frame_index = (bpy.context.scene.frame_current - 160) % 16  # Adjust for your frame start
-        song = [4, 3, 2, 1, 1, 2, 3, 4, 0, 2, 1, 2, 0, 1, 2, 0, 0, 3, 0, 4, 0, 3, 4, 3, 2, 1]
-        # song = [4, 1, 4, 1, 4, 2, 4, 1] * 4  # Example song, 4x4 pattern repeated
+        frame_index = (bpy.context.scene.frame_current - 0) % 16
+        song = [4, 3, 2, 1, 1, 2, 3, 4, 0, 2, 1, 2, 0, 1, 2, 0, 0, 3, 0, 4, 0, 3, 4, 3, 2, 1] * 5
         interval = -4.0
         offset = -2.0
 
         focus.location.x = song[frame_index ] - 2
-#        focus.location.y = 0
         focus.location.y = offset + frame_index * interval
         focus.location.z = 4
-
         bpy.context.view_layer.objects.active = focus
+        return
 
     def key_handling(self, context, event, key_input):
         sf.key_input_g = ""
@@ -156,13 +160,11 @@ class ModalTimerOperator(bpy.types.Operator):
             return
 
         self.move_bike(context, event, key_input)
-        self.move_focus(context, event, key_input)
-        
             
         # donut hit ###############################################
         # Scoring logic
         frame_index = (bpy.context.scene.frame_current - 1) % 16  # Adjust for your frame start
-        song = [4, 3, 2, 1, 1, 2, 3, 4, 0, 2, 1, 2, 0, 1, 2, 0, 0, 3, 0, 4, 0, 3, 4, 3, 2, 1]
+        song = [4, 3, 2, 1, 1, 2, 3, 4, 0, 2, 1, 2, 0, 1, 2, 0, 0, 3, 0, 4, 0, 3, 4, 3, 2, 1] * 5
         # song = [4, 1, 4, 1, 4, 2, 4, 1] * 4  # Example song, 4x4 pattern repeated
         interval = -4.0
         offset = -2.0
@@ -180,8 +182,6 @@ class ModalTimerOperator(bpy.types.Operator):
             score_obj = bpy.data.objects.get('ui.Text.score')
             score_obj["score"] += 1
             showTxt("scode +1")
-
-        bpy.context.view_layer.update() #Need this for the object changes to be visible in 3D View
         return
 
     def execute(self, context):
