@@ -106,10 +106,8 @@ class ModalTimerOperator(bpy.types.Operator):
 
         bpy.context.view_layer.update()
         # Redraw viewport (optional but recommended)
-        bpy.ops.wm.redraw_timer(type='DRAW_WIN_SWAP', iterations=1)
-
-
-
+        if current_frame % 2:
+            bpy.ops.wm.redraw_timer(type='DRAW_WIN_SWAP', iterations=1)
 
         #Key input handling -----------------------------------------
         if sf.key_input_g in {'A', 'D'}:
@@ -129,10 +127,10 @@ class ModalTimerOperator(bpy.types.Operator):
     def move_bike(self, context, event, key_input):
         bike_mover = bpy.data.objects.get('bike-mover')
         if key_input == 'A':
-            if bike_mover.location.x < 1:
+            if bike_mover.location.x < 4:
                 bike_mover.location.x += 0.5
         if key_input == 'D':
-            if bike_mover.location.x > -1:
+            if bike_mover.location.x > 0:
                 bike_mover.location.x -= 0.5
         bpy.context.view_layer.objects.active = bike_mover #Need this to make location changes into blender data
 
@@ -142,14 +140,26 @@ class ModalTimerOperator(bpy.types.Operator):
         # debug
         focus = bpy.data.objects.get('focus')
         
-        frame_index = (bpy.context.scene.frame_current - 0) % 16
+        frame_index = int(bpy.context.scene.frame_current / 30) % (16*5)
         song = [4, 3, 2, 1, 1, 2, 3, 4, 0, 2, 1, 2, 0, 1, 2, 0, 0, 3, 0, 4, 0, 3, 4, 3, 2, 1] * 5
         interval = -4.0
-        offset = -2.0
+        offset = 0
 
-        focus.location.x = song[frame_index ] - 2
+        focus.location.x = song[frame_index ] - 0
         focus.location.y = offset + frame_index * interval
         focus.location.z = 4
+        bpy.context.view_layer.objects.active = focus
+        return
+
+    def move_focus2(self, context, event, x, y, z):
+        showTxt("in move_focus1")
+
+        # debug
+        focus = bpy.data.objects.get('focus')
+        
+        focus.location.x = x
+        focus.location.y = y
+        focus.location.z = z
         bpy.context.view_layer.objects.active = focus
         return
 
@@ -163,21 +173,19 @@ class ModalTimerOperator(bpy.types.Operator):
             
         # donut hit ###############################################
         # Scoring logic
-        frame_index = (bpy.context.scene.frame_current - 1) % 16  # Adjust for your frame start
+        frame_index = bpy.context.scene.frame_current % 32
         song = [4, 3, 2, 1, 1, 2, 3, 4, 0, 2, 1, 2, 0, 1, 2, 0, 0, 3, 0, 4, 0, 3, 4, 3, 2, 1] * 5
-        # song = [4, 1, 4, 1, 4, 2, 4, 1] * 4  # Example song, 4x4 pattern repeated
         interval = -4.0
         offset = -2.0
 
-        focus = bpy.data.objects.get('focus')
-        focus.location.x = song[frame_index] - 2
-        focus.location.y = offset + frame_index * interval
-        focus.location.z = 4
+        x = song[frame_index] - 2
+        y = offset + frame_index * interval
+        z = 4
+#        self.move_focus2(context, event, x, y, z)
 
-        showTxt(f"focus.location.x = {focus.location.x}")
         # Check if player hit the correct note
-
         bike_mover = bpy.data.objects.get('bike-mover')
+        focus = bpy.data.objects.get('focus')
         if abs(bike_mover.location.x - focus.location.x) < 0.25:  # Tolerance for hit
             score_obj = bpy.data.objects.get('ui.Text.score')
             score_obj["score"] += 1

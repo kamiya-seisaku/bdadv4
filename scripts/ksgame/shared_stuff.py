@@ -1,5 +1,5 @@
 ### flug switches ###
-debug_flug = True
+debug_flug = False
 ### global variables ###
 key_source_g = ""
 key_input_g = ""
