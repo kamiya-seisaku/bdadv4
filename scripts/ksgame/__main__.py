@@ -83,38 +83,6 @@ class ModalTimerOperator(bpy.types.Operator):
     def __init__(self):
         pass
 
-        def set_visibility(obj, state):
-            if state == "Toggle":
-                is_visible = not obj.hide_viewport  # Toggle based on current state
-            elif state == "True":
-                is_visible = False  # Force visible
-            elif state == "False":
-                is_visible = True   # Force hidden
-            else:
-                print(f"Invalid state: {state}. Use 'True', 'False', or 'Toggle'.")
-                return  # Exit the function if the state is invalid
-
-            obj.hide_viewport = is_visible
-            obj.hide_render = is_visible
-
-            layer_collection = obj.users_collection[0]
-            layer_collection.hide_viewport = is_visible
-            layer_collection.collection.hide_viewport = is_visible
-
-            print(f"Object '{obj.name}' visibility set to: {not is_visible}")
-
-        # Get the object you want to toggle (e.g., by name)
-        obj_name = "chat1"
-        chat1 = bpy.data.objects.get(obj_name)
-
-        if chat1:
-            visibility_state = "Toggle"  # Or "True" or "False"
-            set_visibility(chat1, visibility_state)
-            bpy.context.scene.update_tag()
-        else:
-            print(f"Object '{obj_name}' not found")
-
-
     def modal(self, context, event):
         if isinstance(event, bpy.types.Event) == False:
             return {'PASS_THROUGH'}
@@ -145,8 +113,10 @@ class ModalTimerOperator(bpy.types.Operator):
         chat_text = bpy.data.objects.get('chat_text')
         chat1 = bpy.data.objects.get('chat1')
         if 30 <= current_frame < 50:
-            chat1.hide_viewport = False
-            chat1.hide_render = False
+
+            self.set_visibility('chat1', "True")
+#            chat1.hide_viewport = False
+#            chat1.hide_render = False
             bpy.context.scene.update_tag()
             serif = [
                 "今日は多いなー",
@@ -156,7 +126,7 @@ class ModalTimerOperator(bpy.types.Operator):
         elif 50 <= current_frame < 100:
             serif = [
                 "こんなに取れっかな",
-                "オラ自身ねえゾ"
+                "オラ自信ねえゾ"
             ]
             chat_text.data.body = str('\n'.join(serif))
         elif 100 <= current_frame < 120:
@@ -180,6 +150,29 @@ class ModalTimerOperator(bpy.types.Operator):
         bpy.context.view_layer.update()
 
         return {'PASS_THROUGH'}
+
+    def set_visibility(self, obj_name, state):
+        obj = bpy.data.objects.get(obj_name)
+
+        if state == "Toggle":
+            is_visible = not obj.hide_viewport  # Toggle based on current state
+        elif state == "True":
+            is_visible = False  # Force visible
+        elif state == "False":
+            is_visible = True   # Force hidden
+        else:
+            print(f"Invalid state: {state}. Use 'True', 'False', or 'Toggle'.")
+            return  # Exit the function if the state is invalid
+
+        obj.hide_viewport = is_visible
+        obj.hide_render = is_visible
+
+        layer_collection = obj.users_collection[0]
+        layer_collection.hide_viewport = is_visible
+#        layer_collection.collection.hide_viewport = is_visible
+
+        print(f"Object '{obj.name}' visibility set to: {not is_visible}")
+
 
     def move_bike(self, context, event, key_input):
         bike_mover = bpy.data.objects.get('bike-mover')
