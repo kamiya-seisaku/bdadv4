@@ -1,5 +1,4 @@
 # [Todo]
-# web not working
 #   1 [pub] publih poc.
 #      1.1 [pub] score.
 #         1.1 [pub] note sequence.
@@ -19,6 +18,7 @@
 # This code is written for a Blender indie game project "Uncirtain Days"
 # This code is published with the MIT license, as is, no support obligation.
 # Kamiya Seisaku, Kamiya Kei, 2024
+
 import bpy
 import os
 # import glob
@@ -115,8 +115,6 @@ class ModalTimerOperator(bpy.types.Operator):
         if 30 <= current_frame < 50:
 
             self.set_visibility('chat1', "True")
-#            chat1.hide_viewport = False
-#            chat1.hide_render = False
             bpy.context.scene.update_tag()
             serif = [
                 "今日は多いなー",
@@ -131,10 +129,15 @@ class ModalTimerOperator(bpy.types.Operator):
             chat_text.data.body = str('\n'.join(serif))
         elif 100 <= current_frame < 120:
             chat_text.data.body = ""
-        elif 120 <= current_frame < 130:
-            chat1 = bpy.data.objects.get('chat1')
-            chat1.hide_viewport = True
-            chat1.hide_render = True
+        elif 120 <= current_frame < 123:
+            self.set_visibility('chat1', "False")
+        elif 130 <= current_frame < 135:
+            self.set_visibility('chat1', "True")
+            serif = [
+                "取り損ねたドーナツは",
+                "食べ終わったオニギリのごとし・・・"
+            ]
+            chat_text.data.body = str('\n'.join(serif))
         
         #Key input handling -----------------------------------------
         if sf.key_input_g in {'A', 'D'}:
@@ -153,7 +156,6 @@ class ModalTimerOperator(bpy.types.Operator):
 
     def set_visibility(self, obj_name, state):
         obj = bpy.data.objects.get(obj_name)
-
         if state == "Toggle":
             is_visible = not obj.hide_viewport  # Toggle based on current state
         elif state == "True":
@@ -166,9 +168,10 @@ class ModalTimerOperator(bpy.types.Operator):
 
         obj.hide_viewport = is_visible
         obj.hide_render = is_visible
+        bpy.context.view_layer.update()
 
-        layer_collection = obj.users_collection[0]
-        layer_collection.hide_viewport = is_visible
+#        layer_collection = obj.users_collection[0]
+#        layer_collection.hide_viewport = is_visible
 #        layer_collection.collection.hide_viewport = is_visible
 
         print(f"Object '{obj.name}' visibility set to: {not is_visible}")
