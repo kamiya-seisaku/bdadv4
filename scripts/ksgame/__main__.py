@@ -1,19 +1,19 @@
 # [Todo]
-#   1 [pub] publih poc.
-#      1.1 [pub] score.
-#         1.1 [pub] note sequence.
-#      1.1 [pub] brick reaction.
-#      1.1 [pub] installation guide.
-#      1.1 [pub] now make a video.
-#   1 [Issue] capture from blender window not screen
-#   1 [Issue] initially chrome key not working until clicked in blender 
+#  1 [pub] publih poc.
+#    1.1 [pub] score.
+#      1.1 [pub] note sequence.
+#    1.1 [pub] brick reaction.
+#    1.1 [pub] installation guide.
+#    1.1 [pub] now make a video.
+#  1 [Issue] capture from blender window not screen
+#  1 [Issue] initially chrome key not working until clicked in blender 
 # [Ideas]
-#   1 servant/maid cafe shop clening game
-#   1 music game
-#   1 dance input/whistle input/air drums input/sequencer/fan copy
-#   1 scene ideas/fan copy games from music videos(miku miku beam,soul soup,universe,tokyo flash,time paradox)
+#  1 servant/maid cafe shop clening game
+#  1 music game
+#  1 dance input/whistle input/air drums input/sequencer/fan copy
+#  1 scene ideas/fan copy games from music videos(miku miku beam,soul soup,universe,tokyo flash,time paradox)
 # [Done]
-#   1 [Issue] blender key only partially working 
+#  1 [Issue] blender key only partially working 
 
 # This code is written for a Blender indie game project "Uncirtain Days"
 # This code is published with the MIT license, as is, no support obligation.
@@ -46,16 +46,16 @@ def showTxt(txt):
     global previous_frame
     text_obj_system = bpy.data.objects.get('ui.Text.system')
     text_obj_system.data.body = str(txt)
-    
+   
     if bpy.data.scenes[0].frame_current - previous_frame >= 1:
         print(str(txt))
     previous_frame = bpy.data.scenes[0].frame_current
 
 # key_sm: key handling state machine
 # Receives:
-#   input_key: 'A', 'D'
+#  input_key: 'A', 'D'
 # Returns:
-#   input_key, only if it is a non-repeated key input
+#  input_key, only if it is a non-repeated key input
 previous_input_key = ""
 def key_sm(input_key): #key handling state machine
     global previous_input_key
@@ -90,11 +90,6 @@ class ModalTimerOperator(bpy.types.Operator):
         if event.type == 'ESC':
             self.cancel(context)
             return {'CANCELLED'}
-
-#        if event.type == 'TIMER':
-#            bpy.data.objects[op_cls.__text_object_name].data.body = datetime.datetime.now().strftime("%Y.%m.%d %H:%M:%S")
-
-#        return {'PASS_THROUGH'}
 
         #HUD updates-------------------------------------------------
         text_obj_fn = bpy.data.objects.get('ui.Text.FN')
@@ -138,7 +133,7 @@ class ModalTimerOperator(bpy.types.Operator):
                 "食べ終わったオニギリのごとし・・・"
             ]
             chat_text.data.body = str('\n'.join(serif))
-        
+       
         #Key input handling -----------------------------------------
         if sf.key_input_g in {'A', 'D'}:
             self.key_handling(context, event, sf.key_input_g)
@@ -170,10 +165,6 @@ class ModalTimerOperator(bpy.types.Operator):
         obj.hide_render = is_visible
         bpy.context.view_layer.update()
 
-#        layer_collection = obj.users_collection[0]
-#        layer_collection.hide_viewport = is_visible
-#        layer_collection.collection.hide_viewport = is_visible
-
         print(f"Object '{obj.name}' visibility set to: {not is_visible}")
 
 
@@ -192,7 +183,7 @@ class ModalTimerOperator(bpy.types.Operator):
 
         # debug
         focus = bpy.data.objects.get('focus')
-        
+       
         frame_index = int(bpy.context.scene.frame_current / 30) % (16*5)
         song = [4, 3, 2, 1, 1, 2, 3, 4, 0, 2, 1, 2, 0, 1, 2, 0, 0, 3, 0, 4, 0, 3, 4, 3, 2, 1] * 5
         interval = -4.0
@@ -204,18 +195,6 @@ class ModalTimerOperator(bpy.types.Operator):
         bpy.context.view_layer.objects.active = focus
         return
 
-    def move_focus2(self, context, event, x, y, z):
-        showTxt("in move_focus1")
-
-        # debug
-        focus = bpy.data.objects.get('focus')
-        
-        focus.location.x = x
-        focus.location.y = y
-        focus.location.z = z
-        bpy.context.view_layer.objects.active = focus
-        return
-
     def key_handling(self, context, event, key_input):
         sf.key_input_g = ""
         processed_key = key_sm(key_input)
@@ -223,7 +202,7 @@ class ModalTimerOperator(bpy.types.Operator):
             return
 
         self.move_bike(context, event, key_input)
-            
+       
         # donut hit ###############################################
         # Scoring logic
         frame_index = bpy.context.scene.frame_current % 32
@@ -234,15 +213,14 @@ class ModalTimerOperator(bpy.types.Operator):
         x = song[frame_index] - 2
         y = offset + frame_index * interval
         z = 4
-#        self.move_focus2(context, event, x, y, z)
 
         # Check if player hit the correct note
         bike_mover = bpy.data.objects.get('bike-mover')
         focus = bpy.data.objects.get('focus')
-        if abs(bike_mover.location.x - focus.location.x) < 0.25:  # Tolerance for hit
+        if abs(bike_mover.location.x - focus.location.x) < 0.25: 
             score_obj = bpy.data.objects.get('ui.Text.score')
             score_obj["score"] += 1
-            showTxt("scode +1")
+            showTxt("score +1")
         return
 
     def execute(self, context):
@@ -273,18 +251,14 @@ class ModalTimerOperator(bpy.types.Operator):
 
         score_obj = bpy.data.objects.get('ui.Text.score')
         score_obj["score"] = 0 # Reset game score
-        # score = score_obj["score"] # Reset game score
-        # score = 0
         bpy.ops.screen.animation_play() # Play active scene animation
- 
+    
         return {'RUNNING_MODAL'}
 
     def cancel(self, context):
         km.set_obj_select_keymap("on")
         bpy.app.handlers.frame_change_post.remove(self.modal)
         unregister()
-#        self.fsw.socketio.stop()
-        # wm = context.window_manager
         return {'PASS_THROUGH'}
 
 ###############################################################################
@@ -332,4 +306,4 @@ def register():
 
 if __name__ == "__main__":
     register()
-#    bpy.ops.wm.modal_timer_operator()
+#  bpy.ops.wm.modal_timer_operator()
