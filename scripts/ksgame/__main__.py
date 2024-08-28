@@ -170,14 +170,13 @@ class ModalTimerOperator(bpy.types.Operator):
 
 
     def move_bike(self, context, event, key_input):
-        bike_mover = bpy.data.objects.get('bike-mover')
+        bike_mover = animatable_object('bike-mover') 
         if key_input == 'A':
             if bike_mover.location.x < 4:
                 bike_mover.location.x += 0.5
         if key_input == 'D':
             if bike_mover.location.x > 0:
                 bike_mover.location.x -= 0.5
-        bpy.context.view_layer.objects.active = bike_mover #Need this to make location changes into blender data
 
     def move_focus(self, context, event, key_input):
         showTxt("in move_focus1")
