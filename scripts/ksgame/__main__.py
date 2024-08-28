@@ -36,6 +36,7 @@ from flask_server import flask_server_wrapper
 import shared_stuff as sf
 import keymap as km
 from screen_share import ScreenShareCamera
+from animator import animatable_object
 
 ## Utilities ##################################################################
 previous_txt = ""
