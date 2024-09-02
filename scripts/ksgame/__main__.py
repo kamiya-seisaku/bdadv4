@@ -173,16 +173,15 @@ class ModalTimerOperator(bpy.types.Operator):
         bike_mover = animatable_object('bike-mover') 
         if key_input == 'A':
             if bike_mover.location.x < 4:
-                bike_mover.location.x += 0.5
+                bike_mover.location.x += 0.125
         if key_input == 'D':
             if bike_mover.location.x > 0:
-                bike_mover.location.x -= 0.5
+                bike_mover.location.x -= 0.125
 
     def move_focus(self, context, event, key_input):
         showTxt("in move_focus1")
 
-        # debug
-        focus = bpy.data.objects.get('focus')
+        focus = animatable_object('focus') 
        
         frame_index = int(bpy.context.scene.frame_current / 30) % (16*5)
         song = [4, 3, 2, 1, 1, 2, 3, 4, 0, 2, 1, 2, 0, 1, 2, 0, 0, 3, 0, 4, 0, 3, 4, 3, 2, 1] * 5
@@ -192,8 +191,6 @@ class ModalTimerOperator(bpy.types.Operator):
         focus.location.x = song[frame_index ] - 0
         focus.location.y = offset + frame_index * interval
         focus.location.z = 4
-        bpy.context.view_layer.objects.active = focus
-        return
 
     def key_handling(self, context, event, key_input):
         sf.key_input_g = ""
